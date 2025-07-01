@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://SEU_USUARIO.github.io/imptel-website/sitemap.xml
+Sitemap: https://benj247.github.io/imptel-website/imptel-website/sitemap.xml
 
 # Bloquear acesso a arquivos desnecessários
 Disallow: /assets/js/
