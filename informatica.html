@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="IMPTEL - Curso de Informática. Transforme sua paixão por tecnologia em uma carreira de sucesso.">
+    <title>Informática - IMPTEL</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/themes.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Page specific styles */
+        body {
+            padding-top: 60px; /* Account for fixed header */
+        }
+        
+        .hero-section {
+            min-height: calc(100vh - 60px); /* Full viewport minus header */
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: #000; /* Black background for matrix effect */
+        }
+        
+        .matrix-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        #matrix-canvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            padding: var(--spacing-3xl);
+            border-radius: var(--radius-xl);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            border: 1px solid rgba(0, 255, 65, 0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content {
+                padding: var(--spacing-xl);
+                margin: 0 var(--spacing-md);
+            }
+        }
+        
+        @media (max-width: 415px) {
+            .hero-content {
+                padding: var(--spacing-lg);
+                margin: 0 var(--spacing-sm);
+                max-width: 95%;
+            }
+        }
+        
+        .hero-content h1 {
+            color: var(--theme-cs-primary);
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-lg);
+            text-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
+        }
+        
+        .hero-content p {
+            color: var(--color-white);
+            font-size: 1.25rem;
+            margin-bottom: var(--spacing-2xl);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 415px) {
+            .hero-content h1 {
+                font-size: 1.5rem;
+                line-height: 1.2;
+            }
+            
+            .hero-content p {
+                font-size: 0.875rem;
+                margin-bottom: var(--spacing-lg);
+            }
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: var(--spacing-lg);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .hero-btn {
+            padding: var(--spacing-md) var(--spacing-2xl);
+            background: var(--theme-cs-gradient);
+            color: var(--color-white);
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            transition: all var(--transition-base);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .hero-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 255, 65, 0.3);
+        }
+        
+        @media (max-width: 480px) {
+            .hero-buttons {
+                flex-direction: column;
+                gap: var(--spacing-md);
+            }
+            
+            .hero-btn {
+                width: 100%;
+                padding: var(--spacing-md) var(--spacing-lg);
+            }
+        }
+        
+        @media (max-width: 415px) {
+            .hero-buttons {
+                gap: var(--spacing-sm);
+            }
+            
+            .hero-btn {
+                padding: var(--spacing-sm) var(--spacing-md);
+                font-size: 0.875rem;
+            }
+        }
+        
+        .program-card {
+            background: var(--color-white);
+            border: 2px solid var(--theme-cs-light);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-2xl);
+            transition: all var(--transition-base);
+            text-align: center;
+        }
+        
+        .program-card:hover {
+            border-color: var(--theme-cs-primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 255, 65, 0.2);
+        }
+        
+        .program-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto var(--spacing-lg);
+            background: var(--theme-cs-light);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--theme-cs-secondary);
+        }
+        
+        .program-icon svg {
+            width: 50px;
+            height: 50px;
+        }
+        
+        .code-snippet {
+            background: #1a1a1a;
+            color: var(--theme-cs-primary);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-md);
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            margin: var(--spacing-lg) 0;
+        }
+        
+        /* Innovation Grid Responsive */
+        @media (max-width: 768px) {
+            .innovation-grid {
+                grid-template-columns: 1fr !important;
+                gap: var(--spacing-xl) !important;
+            }
+        }
+        
+        @media (max-width: 415px) {
+            .innovation-grid {
+                gap: var(--spacing-lg) !important;
+            }
+        }
+        
+        /* Animation Controls Wrapper */
+        .animation-controls-wrapper {
+            position: relative;
+            margin-top: calc(-1 * var(--spacing-3xl));
+        }
+        
+        .animation-controls {
+            position: absolute;
+            bottom: var(--spacing-xl);
+            right: var(--spacing-xl);
+            background: rgba(255, 255, 255, 0.9);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg);
+            z-index: 10;
+        }
+        
+        .animation-controls label {
+            display: block;
+            font-size: 0.875rem;
+            margin-bottom: var(--spacing-sm);
+            color: var(--color-gray-700);
+        }
+        
+        .animation-controls input[type="range"] {
+            width: 150px;
+        }
+        
+        /* Medium screens - prevent overlap */
+        @media (max-width: 1024px) {
+            .animation-controls-wrapper {
+                margin-top: 0;
+            }
+            
+            .animation-controls {
+                position: relative;
+                bottom: auto;
+                right: auto;
+                margin: var(--spacing-xl) var(--spacing-xl) 0 auto;
+                max-width: 200px;
+            }
+        }
+        
+        @media (max-width: 916px) {
+            .animation-controls-wrapper {
+                position: static;
+                padding: var(--spacing-xl);
+                background: var(--color-gray-50);
+                margin-top: 0;
+            }
+            
+            .animation-controls {
+                position: static;
+                transform: none;
+                margin: 0 auto;
+                max-width: 300px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body class="theme-informatica">
+    <!-- Skip to main content -->
+    <a href="#main" class="skip-to-main sr-only" data-i18n="common.skipToMain">Saltar para conteúdo principal</a>
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <img src="assets/images/imptellogo.jpg" alt="IMPTEL Logo" width="40" height="40">
+                    <span>IMPTEL</span>
+                </a>
+                
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link" data-i18n="nav.home"></a></li>
+                    <li><a href="visitante.html#about" class="nav-link" data-i18n="nav.about"></a></li>
+                    <li><a href="visitante.html#home" class="nav-link" data-i18n="nav.news"></a></li>
+                    <li><a href="visitante.html#facilities" class="nav-link" data-i18n="nav.facilities"></a></li>
+                    <li><a href="visitante.html#courses" class="nav-link" data-i18n="nav.programs"></a></li>
+                    <li><a href="visitante.html#admission" class="nav-link" data-i18n="nav.admissions"></a></li>
+                </ul>
+                
+                <div class="language-switcher">
+                    <button data-lang="pt" class="active">PT</button>
+                    <button data-lang="en">EN</button>
+                </div>
+                
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main id="main">
+        <!-- Hero Section with Matrix Rain -->
+        <section class="hero-section">
+            <div class="matrix-container">
+                <canvas id="matrix-canvas"></canvas>
+            </div>
+            
+            <div class="container">
+                <div class="hero-content animate-fade-in-up">
+                    <h1 data-i18n="hero.cs.title"></h1>
+                    <p data-i18n="hero.cs.subtitle"></p>
+                    
+                    <div class="hero-buttons">
+                        <a href="#programs" class="hero-btn" data-i18n="hero.cs.btn1"></a>
+                        <a href="#innovation" class="hero-btn" data-i18n="hero.cs.btn2"></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Animation Controls -->
+        <div class="animation-controls-wrapper">
+            <div class="animation-controls">
+                <label for="animation-intensity" data-i18n="animation.intensity"></label>
+                <input type="range" id="animation-intensity" class="animation-intensity-control" min="0" max="1" step="0.1" value="0.7">
+            </div>
+        </div>
+        
+        <!-- Programs Section -->
+        <section id="programs" class="section">
+            <div class="container">
+                <h2 class="section-title gradient-text" data-i18n="sections.programs"></h2>
+                
+                <div class="programs-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-xl); margin-top: var(--spacing-2xl);">
+                    <!-- Software Engineering -->
+                    <div class="program-card scroll-animate">
+                        <div class="program-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                            </svg>
+                        </div>
+                        <h3 data-i18n="programs.software.title"></h3>
+                        <p data-i18n="programs.software.desc"></p>
+                        
+                        <div class="code-snippet">
+                            <code>
+                                function createFuture() {<br>
+                                &nbsp;&nbsp;const skills = ['JavaScript', 'Python', 'Java'];<br>
+                                &nbsp;&nbsp;return skills.map(skill => master(skill));<br>
+                                }
+                            </code>
+                        </div>
+                    </div>
+                    
+                    <!-- Cybersecurity -->
+                    <div class="program-card scroll-animate">
+                        <div class="program-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                            </svg>
+                        </div>
+                        <h3 data-i18n="programs.cyber.title"></h3>
+                        <p data-i18n="programs.cyber.desc"></p>
+                        
+                        <div class="code-snippet">
+                            <code>
+                                def protect_system():<br>
+                                &nbsp;&nbsp;firewall.enable()<br>
+                                &nbsp;&nbsp;encryption.apply(AES256)<br>
+                                &nbsp;&nbsp;return "System Secured"
+                            </code>
+                        </div>
+                    </div>
+                    
+                    <!-- Data Science -->
+                    <div class="program-card scroll-animate">
+                        <div class="program-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                            </svg>
+                        </div>
+                        <h3 data-i18n="programs.data.title"></h3>
+                        <p data-i18n="programs.data.desc"></p>
+                        
+                        <div class="code-snippet">
+                            <code>
+                                import pandas as pd<br>
+                                import numpy as np<br>
+                                <br>
+                                insights = data.analyze().visualize()
+                            </code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Innovation Lab Section -->
+        <section id="innovation" class="section theme-section">
+            <div class="container">
+                <h2 class="section-title gradient-text" data-i18n="sections.innovation"></h2>
+                
+                <div class="innovation-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-2xl); align-items: center; margin-top: var(--spacing-2xl);">
+                    <div class="scroll-animate-left">
+                        <h3 style="color: var(--theme-cs-secondary); margin-bottom: var(--spacing-lg);" data-i18n="programs.studentProjects"></h3>
+                        <p style="margin-bottom: var(--spacing-lg);" data-i18n="programs.studentProjectsDesc"></p>
+                        
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="margin-bottom: var(--spacing-md); padding-left: var(--spacing-lg); position: relative;">
+                                <span style="position: absolute; left: 0; color: var(--theme-cs-primary);">▶</span>
+                                <span data-i18n="projects.schoolSystem"></span>
+                            </li>
+                            <li style="margin-bottom: var(--spacing-md); padding-left: var(--spacing-lg); position: relative;">
+                                <span style="position: absolute; left: 0; color: var(--theme-cs-primary);">▶</span>
+                                <span data-i18n="projects.mobilityApp"></span>
+                            </li>
+                            <li style="margin-bottom: var(--spacing-md); padding-left: var(--spacing-lg); position: relative;">
+                                <span style="position: absolute; left: 0; color: var(--theme-cs-primary);">▶</span>
+                                <span data-i18n="projects.elearning"></span>
+                            </li>
+                            <li style="margin-bottom: var(--spacing-md); padding-left: var(--spacing-lg); position: relative;">
+                                <span style="position: absolute; left: 0; color: var(--theme-cs-primary);">▶</span>
+                                <span data-i18n="projects.iot"></span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="scroll-animate-right">
+                        <div style="background: var(--theme-cs-light); padding: var(--spacing-2xl); border-radius: var(--radius-lg); text-align: center;">
+                            <h4 style="color: var(--theme-cs-dark); margin-bottom: var(--spacing-lg);" data-i18n="programs.techWeTeach"></h4>
+                            <div style="display: flex; flex-wrap: wrap; gap: var(--spacing-sm); justify-content: center;">
+                                <span class="badge">JavaScript</span>
+                                <span class="badge">Python</span>
+                                <span class="badge">Java</span>
+                                <span class="badge">React</span>
+                                <span class="badge">Node.js</span>
+                                <span class="badge">Machine Learning</span>
+                                <span class="badge">Cloud Computing</span>
+                                <span class="badge">Docker</span>
+                                <span class="badge">Git</span>
+                                <span class="badge">SQL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Success Stories -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title gradient-text" data-i18n="sections.success"></h2>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-xl); margin-top: var(--spacing-2xl);">
+                    <!-- Alumni Card 1 -->
+                    <div class="theme-card scroll-animate">
+                        <div style="display: flex; align-items: center; margin-bottom: var(--spacing-lg);">
+                            <div style="width: 60px; height: 60px; border-radius: 50%; background: var(--theme-cs-light); margin-right: var(--spacing-md);"></div>
+                            <div>
+                                <h4 style="color: var(--theme-cs-dark);" data-i18n="alumni.names.name1"></h4>
+                                <p style="color: var(--color-gray-600); font-size: 0.875rem;"><span data-i18n="alumni.class"></span> 2022</p>
+                            </div>
+                        </div>
+                        <p style="font-style: italic; color: var(--color-gray-700);" data-i18n="alumni.testimonial1"></p>
+                        <p style="color: var(--theme-cs-secondary); font-weight: 600; margin-top: var(--spacing-md);" data-i18n="alumni.position1"></p>
+                    </div>
+                    
+                    <!-- Alumni Card 2 -->
+                    <div class="theme-card scroll-animate" style="animation-delay: 0.1s;">
+                        <div style="display: flex; align-items: center; margin-bottom: var(--spacing-lg);">
+                            <div style="width: 60px; height: 60px; border-radius: 50%; background: var(--theme-cs-light); margin-right: var(--spacing-md);"></div>
+                            <div>
+                                <h4 style="color: var(--theme-cs-dark);" data-i18n="alumni.names.name2"></h4>
+                                <p style="color: var(--color-gray-600); font-size: 0.875rem;"><span data-i18n="alumni.class"></span> 2021</p>
+                            </div>
+                        </div>
+                        <p style="font-style: italic; color: var(--color-gray-700);" data-i18n="alumni.testimonial2"></p>
+                        <p style="color: var(--theme-cs-secondary); font-weight: 600; margin-top: var(--spacing-md);" data-i18n="alumni.position2"></p>
+                    </div>
+                    
+                    <!-- Alumni Card 3 -->
+                    <div class="theme-card scroll-animate" style="animation-delay: 0.2s;">
+                        <div style="display: flex; align-items: center; margin-bottom: var(--spacing-lg);">
+                            <div style="width: 60px; height: 60px; border-radius: 50%; background: var(--theme-cs-light); margin-right: var(--spacing-md);"></div>
+                            <div>
+                                <h4 style="color: var(--theme-cs-dark);" data-i18n="alumni.names.name3"></h4>
+                                <p style="color: var(--color-gray-600); font-size: 0.875rem;"><span data-i18n="alumni.class"></span> 2023</p>
+                            </div>
+                        </div>
+                        <p style="font-style: italic; color: var(--color-gray-700);" data-i18n="alumni.testimonial3"></p>
+                        <p style="color: var(--theme-cs-secondary); font-weight: 600; margin-top: var(--spacing-md);" data-i18n="alumni.position3"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- CTA Section -->
+        <section class="section" style="background: var(--theme-cs-light); text-align: center;">
+            <div class="container">
+                <h2 class="gradient-text" style="font-size: 2.5rem; margin-bottom: var(--spacing-lg);" data-i18n="sections.ready"></h2>
+                <p style="font-size: 1.125rem; color: var(--color-gray-700); margin-bottom: var(--spacing-2xl);" data-i18n="sections.joinUs"></p>
+                <a href="#admissions" class="btn-theme" style="font-size: 1.125rem; padding: var(--spacing-md) var(--spacing-3xl); position: relative; overflow: hidden; display: inline-block;" data-i18n="form.enrollNow"></a>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Back to Top Button -->
+    <button class="back-to-top" aria-label="Back to top">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+    
+    <!-- Footer -->
+    <footer class="footer" style="background: var(--color-gray-900); color: var(--color-white); padding: var(--spacing-3xl) 0;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--spacing-2xl);">
+                <div>
+                    <h3 style="margin-bottom: var(--spacing-lg);" data-i18n="footer.about"></h3>
+                    <p style="color: var(--color-gray-400);" data-i18n="footer.aboutDesc"></p>
+                </div>
+                
+                <div>
+                    <h3 style="margin-bottom: var(--spacing-lg);" data-i18n="footer.programs"></h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: var(--spacing-sm);"><a href="#" style="color: var(--color-gray-400); transition: color var(--transition-fast);" data-i18n="footer.softwareEng"></a></li>
+                        <li style="margin-bottom: var(--spacing-sm);"><a href="#" style="color: var(--color-gray-400); transition: color var(--transition-fast);" data-i18n="footer.cyberSec"></a></li>
+                        <li style="margin-bottom: var(--spacing-sm);"><a href="#" style="color: var(--color-gray-400); transition: color var(--transition-fast);" data-i18n="footer.dataScience"></a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 style="margin-bottom: var(--spacing-lg);" data-i18n="footer.contact"></h3>
+                    <ul style="list-style: none; padding: 0; color: var(--color-gray-400);">
+                        <li style="margin-bottom: var(--spacing-sm);">📍 <span data-i18n="common.address"></span></li>
+                        <li style="margin-bottom: var(--spacing-sm);">📞 +244 923 456 789</li>
+                        <li style="margin-bottom: var(--spacing-sm);">✉️ info@imptel.ao</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 style="margin-bottom: var(--spacing-lg);" data-i18n="footer.quickLinks"></h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: var(--spacing-sm);"><a href="index.html" style="color: var(--color-gray-400); transition: color var(--transition-fast);" data-i18n="footer.home"></a></li>
+                        <li style="margin-bottom: var(--spacing-sm);"><a href="visitante.html" style="color: var(--color-gray-400); transition: color var(--transition-fast);" data-i18n="footer.generalInfo"></a></li>
+                        <li style="margin-bottom: var(--spacing-sm);"><a href="eletronica.html" style="color: var(--color-gray-400); transition: color var(--transition-fast);" data-i18n="electronics.title"></a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="margin-top: var(--spacing-2xl); padding-top: var(--spacing-2xl); border-top: 1px solid var(--color-gray-800); text-align: center; color: var(--color-gray-500);">
+                <p><span data-i18n="common.copyright"></span> <span data-i18n="footer.rights"></span>.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script src="assets/js/utils.js"></script>
+    <script src="assets/js/translations.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/language-switcher.js"></script>
+    <script src="assets/js/matrix-rain.js"></script>
+</body>
+</html>

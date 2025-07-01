@@ -1,0 +1,45 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366F1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background Circle -->
+  <circle cx="60" cy="60" r="55" fill="url(#logoGradient)" opacity="0.1"/>
+  
+  <!-- Outer Ring -->
+  <circle cx="60" cy="60" r="50" fill="none" stroke="url(#logoGradient)" stroke-width="2"/>
+  
+  <!-- Tech Symbol - Circuit Pattern -->
+  <g transform="translate(60, 60)">
+    <!-- Central Node -->
+    <circle cx="0" cy="0" r="8" fill="url(#logoGradient)"/>
+    
+    <!-- Connection Lines -->
+    <line x1="0" y1="-8" x2="0" y2="-25" stroke="url(#logoGradient)" stroke-width="2"/>
+    <line x1="8" y1="0" x2="25" y2="0" stroke="url(#logoGradient)" stroke-width="2"/>
+    <line x1="0" y1="8" x2="0" y2="25" stroke="url(#logoGradient)" stroke-width="2"/>
+    <line x1="-8" y1="0" x2="-25" y2="0" stroke="url(#logoGradient)" stroke-width="2"/>
+    
+    <!-- Diagonal Connections -->
+    <line x1="6" y1="-6" x2="18" y2="-18" stroke="url(#logoGradient)" stroke-width="2"/>
+    <line x1="6" y1="6" x2="18" y2="18" stroke="url(#logoGradient)" stroke-width="2"/>
+    <line x1="-6" y1="6" x2="-18" y2="18" stroke="url(#logoGradient)" stroke-width="2"/>
+    <line x1="-6" y1="-6" x2="-18" y2="-18" stroke="url(#logoGradient)" stroke-width="2"/>
+    
+    <!-- End Nodes -->
+    <circle cx="0" cy="-25" r="4" fill="url(#logoGradient)"/>
+    <circle cx="25" cy="0" r="4" fill="url(#logoGradient)"/>
+    <circle cx="0" cy="25" r="4" fill="url(#logoGradient)"/>
+    <circle cx="-25" cy="0" r="4" fill="url(#logoGradient)"/>
+    <circle cx="18" cy="-18" r="4" fill="url(#logoGradient)"/>
+    <circle cx="18" cy="18" r="4" fill="url(#logoGradient)"/>
+    <circle cx="-18" cy="18" r="4" fill="url(#logoGradient)"/>
+    <circle cx="-18" cy="-18" r="4" fill="url(#logoGradient)"/>
+  </g>
+  
+  <!-- IMPTEL Text (simplified) -->
+  <text x="60" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#374151">IMPTEL</text>
+</svg>

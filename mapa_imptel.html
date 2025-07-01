@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa IMPTEL - Localização</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin=""/>
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 60px;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        
+        .map-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .map-header {
+            text-align: center;
+            margin-bottom: 0px;
+            
+        }
+        
+        .map-header h2 {
+            color: #6366f1;
+            margin: 0 0 10px 0;
+        }
+        
+        .map-header p {
+            color: #666;
+            margin: 0;
+        }
+        
+        #map {
+            height: 400px;
+            width: 100%;
+            border-radius: 8px;
+            border: 2px solid #e5e7eb;
+        }
+        
+        
+        
+        .directions-btn {
+            background: #6366f1;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+        
+        .directions-btn:hover {
+            background: #5856eb;
+        }
+        
+        /* Custom marker popup */
+        .custom-popup {
+            text-align: center;
+        }
+        
+        .custom-popup h3 {
+            margin: 0 0 5px 0;
+            color: #6366f1;
+        }
+        
+        @media (max-width: 768px) {
+            .map-container {
+                margin: 0 10px;
+                padding: 15px;
+            }
+            
+            #map {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="map-container">
+        <div class="map-header">
+            <h2>📍 Localização IMPTEL</h2>
+            <p>Instituto Médio Privado de Tecnologia - Luanda, Angola</p>
+        </div>
+        
+        <!-- Mapa -->
+        <div id="map"></div>
+        
+
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
+
+    <script>
+        // Inicializar o mapa
+        function initMap() {
+            // Coordenadas do IMPTEL em Luanda
+            const imptelLocation = [-8.8383, 13.2344];
+            
+            // Criar o mapa
+            const map = L.map('map').setView(imptelLocation, 15);
+            
+            // Adicionar tiles do OpenStreetMap (gratuito)
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                maxZoom: 19
+            }).addTo(map);
+            
+            // Criar ícone personalizado
+            const imptelIcon = L.divIcon({
+                className: 'custom-marker',
+                html: `
+                    <div style="
+                        background: #6366f1;
+                        border: 3px solid white;
+                        border-radius: 50%;
+                        width: 30px;
+                        height: 30px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+                        font-size: 16px;
+                    ">
+                        🏫
+                    </div>
+                `,
+                iconSize: [30, 30],
+                iconAnchor: [15, 15]
+            });
+            
+            // Adicionar marcador
+            const marker = L.marker(imptelLocation, { icon: imptelIcon }).addTo(map);
+            
+            // Popup do marcador
+            marker.bindPopup(`
+                <div class="custom-popup">
+                    <h3>🏫 IMPTEL</h3>
+                    <p><strong>Instituto Médio Privado de Tecnologia</strong></p>
+                    <p>📍 Luanda, Angola</p>
+                    <p>📞 +244 XXX XXX XXX</p>
+                    <br>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=${imptelLocation[0]},${imptelLocation[1]}" 
+                       target="_blank" style="color: #6366f1; text-decoration: none;">
+                        🗺️ <strong>Obter Direções</strong>
+                    </a>
+                </div>
+            `).openPopup();
+            
+            // Adicionar controles personalizados
+            map.addControl(new L.Control.Zoom({ position: 'topright' }));
+            
+                // Adicionar botão para vista satélite
+L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}').addTo(map);
+
+            // Evento de clique no mapa
+            map.on('click', function(e) {
+                console.log('Clicou nas coordenadas: ' + e.latlng);
+            });
+        }
+    
+        // Inicializar quando a página carregar
+        document.addEventListener('DOMContentLoaded', function() {
+            initMap();
+        });
+        
+        // Função para centralizar no IMPTEL
+        function focusOnIMPTEL() {
+            map.setView([-8.8383, 13.2344], 17);
+        }
+        
+        // Função para modo satélite (alternativa gratuita)
+        function toggleSatelliteView() {
+            // Remove tile layer atual
+            map.eachLayer(function (layer) {
+                if (layer instanceof L.TileLayer) {
+                    map.removeLayer(layer);
+                }
+            });
+            
+            // Adiciona vista satélite (Esri)
+            L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                attribution: 'Tiles © Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+            }).addTo(map);
+        }
+    </script>
+</body>
+</html>

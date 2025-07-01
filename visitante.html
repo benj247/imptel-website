@@ -1,0 +1,1706 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="IMPTEL - Instituto Médio Privado de Tecnologia. Descubra nossa instituição com 13 anos de excelência em educação tecnológica."
+    />
+    <title>Informações para Visitantes - IMPTEL</title>
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/themes.css" />
+    <link rel="stylesheet" href="assets/css/animations.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""/>
+
+   <link rel="stylesheet" href="estilo_visita.css">
+   
+  </head>
+  <body class="theme-visitante">
+    <!-- Skip to main content -->
+    <a href="#main" class="skip-to-main sr-only" data-i18n="common.skipToMain"
+      >Saltar para conteúdo principal</a
+    >
+
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <nav class="navbar">
+          <a href="index.html" class="logo">
+            <img
+              src="assets/images/imptellogo.jpg"
+              alt="IMPTEL Logo"
+              width="40"
+              height="40"
+            />
+            <span>IMPTEL</span>
+          </a>
+
+          <ul class="nav-menu">
+            <li>
+              <a href="index.html" class="nav-link" data-i18n="nav.home"
+                >Início</a
+              >
+            </li>
+            <li>
+              <a href="#about" class="nav-link" data-i18n="nav.about">Sobre</a>
+            </li>
+            <li>
+              <a href="#courses" class="nav-link" data-i18n="nav.programs"
+                >Programas</a
+              >
+            </li>
+            <li>
+              <a href="#facilities" class="nav-link" data-i18n="nav.facilities"
+                >Instalações</a
+              >
+            </li>
+            <li>
+              <a href="#admission" class="nav-link" data-i18n="nav.admissions"
+                >Admissões</a
+              >
+            </li>
+            <li>
+              <a href="#contact" class="nav-link" data-i18n="nav.contact"
+                >Contacto</a
+              >
+            </li>
+          </ul>
+
+          <div class="language-switcher">
+            <button data-lang="pt" class="active">PT</button>
+            <button data-lang="en">EN</button>
+          </div>
+
+          <button class="mobile-menu-toggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main">
+      <!-- Hero Section with Slideshow -->
+      <section id="home" class="hero-section">
+        <div class="slideshow-container">
+          <div class="slide active">
+            <img src="assets/images/geral/imptel1.jpg" alt="alunos" />
+            <div class="slide-overlay"></div>
+          </div>
+          <div class="slide">
+            <img src="assets/images/geral/imptel3.jpg" alt="aula de fai" />
+            <div class="slide-overlay"></div>
+          </div>
+        </div>
+        <div class="slide">
+            <img src="assets/images/geral/imptel2.jpg" alt="aula de fai" />
+            <div class="slide-overlay"></div>
+          </div>
+        </div>
+
+        <div class="slideshow-dots">
+          <span class="dot active" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+
+        <div class="container">
+          <div class="hero-content animate-fade-in-up">
+            <h1 data-i18n="hero.visitor.title">Bem-vindo ao IMPTEL</h1>
+            <p data-i18n="hero.visitor.subtitle">
+              Descubra o futuro da tecnologia com 13 anos de excelência em
+              educação
+            </p>
+            <div class="hero-buttons">
+              <a href="#about" class="hero-btn" data-i18n="hero.visitor.btn1"
+                >Conheça-nos</a
+              >
+              <a
+                href="#admission"
+                class="hero-btn secondary"
+                data-i18n="hero.visitor.btn2"
+                >Como Inscrever-se</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Statistics Section -->
+      <section class="section secao-estatisticas">
+        <div class="container">
+          <div class="stat-label" data-i18n=sections.statistics">
+            <h2 class="section-title fade-in" data-i18n="sections.statistics">
+              Nossos Números
+            </h2>
+          </div>
+          <div class="stats-grid">
+            <div class="stat-card scroll-animate">
+              <div class="stat-number" data-count="13">0</div>
+              <div class="stat-label" data-i18n="stats.years">
+                Anos de Excelência
+              </div>
+            </div>
+            <div class="stat-card scroll-animate" style="animation-delay: 0.1s">
+              <div class="stat-number" data-count="25000">0</div>
+              <div class="stat-label" data-i18n="stats.students">
+                Alunos Formados
+              </div>
+            </div>
+            <div class="stat-card scroll-animate" style="animation-delay: 0.2s">
+              <div class="stat-number" data-count="95">0</div>
+              <div class="stat-label" data-i18n="stats.employment">
+                % Taxa de Emprego
+              </div>
+            </div>
+            <div class="stat-card scroll-animate" style="animation-delay: 0.3s">
+              <div class="stat-number" data-count="50">0</div>
+              <div class="stat-label" data-i18n="stats.partners">
+                Parceiros Empresariais
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="section theme-section">
+        <div class="container">
+          <h2
+            class="section-title gradient-text"
+            data-i18n="sections.aboutImptel"
+          >
+            Sobre o IMPTEL
+          </h2>
+
+          <div
+            class="about-grid"
+            style="
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: var(--spacing-3xl);
+              align-items: center;
+            "
+          >
+            <div class="scroll-animate-left">
+              <h3
+                style="
+                  color: var(--theme-visitor-dark);
+                  margin-bottom: var(--spacing-lg);
+                "
+                data-i18n="about.missionTitle"
+              >
+                Nossa Missão
+              </h3>
+              <p
+                style="margin-bottom: var(--spacing-xl)"
+                data-i18n="about.missionText"
+              >
+                Formar profissionais altamente qualificados nas áreas de
+                tecnologia, preparados para enfrentar os desafios do mercado
+                global e contribuir para o desenvolvimento tecnológico de
+                Angola.
+              </p>
+
+              <h3
+                style="
+                  color: var(--theme-visitor-dark);
+                  margin-bottom: var(--spacing-lg);
+                "
+                data-i18n="about.visionTitle"
+              >
+                Nossa Visão
+              </h3>
+              <p
+                style="margin-bottom: var(--spacing-xl)"
+                data-i18n="about.visionText"
+              >
+                Ser reconhecido como o instituto de referência em educação
+                tecnológica em Angola, formando líderes inovadores que
+                transformam o futuro digital do país.
+              </p>
+            </div>
+
+            <div class="scroll-animate-right">
+              <div class="theme-card" style="padding: var(--spacing-2xl)">
+                <h3
+                  style="
+                    color: var(--theme-visitor-primary);
+                    margin-bottom: var(--spacing-lg);
+                  "
+                  data-i18n="about.valuesTitle"
+                >
+                  Nossos Valores
+                </h3>
+                <ul style="list-style: none; padding: 0">
+                  <li
+                    style="
+                      margin-bottom: var(--spacing-md);
+                      padding-left: var(--spacing-lg);
+                      position: relative;
+                    "
+                  >
+                    <span
+                      style="
+                        position: absolute;
+                        left: 0;
+                        color: var(--theme-visitor-accent);
+                      "
+                      >✓</span
+                    >
+                    <span data-i18n="about.value1">Excelência Acadêmica</span>
+                  </li>
+                  <li
+                    style="
+                      margin-bottom: var(--spacing-md);
+                      padding-left: var(--spacing-lg);
+                      position: relative;
+                    "
+                  >
+                    <span
+                      style="
+                        position: absolute;
+                        left: 0;
+                        color: var(--theme-visitor-accent);
+                      "
+                      >✓</span
+                    >
+                    <span data-i18n="about.value2">Inovação Tecnológica</span>
+                  </li>
+                  <li
+                    style="
+                      margin-bottom: var(--spacing-md);
+                      padding-left: var(--spacing-lg);
+                      position: relative;
+                    "
+                  >
+                    <span
+                      style="
+                        position: absolute;
+                        left: 0;
+                        color: var(--theme-visitor-accent);
+                      "
+                      >✓</span
+                    >
+                    <span data-i18n="about.value3"
+                      >Responsabilidade Social</span
+                    >
+                  </li>
+                  <li
+                    style="
+                      margin-bottom: var(--spacing-md);
+                      padding-left: var(--spacing-lg);
+                      position: relative;
+                    "
+                  >
+                    <span
+                      style="
+                        position: absolute;
+                        left: 0;
+                        color: var(--theme-visitor-accent);
+                      "
+                      >✓</span
+                    >
+                    <span data-i18n="about.value4">Integridade e Ética</span>
+                  </li>
+                  <li
+                    style="padding-left: var(--spacing-lg); position: relative"
+                  >
+                    <span
+                      style="
+                        position: absolute;
+                        left: 0;
+                        color: var(--theme-visitor-accent);
+                      "
+                      >✓</span
+                    >
+                    <span data-i18n="about.value5">Aprendizagem Contínua</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Courses Overview -->
+      <section id="courses" class="section"></section>
+  <div class="container">
+          <h2
+            class="section-title gradient-text"
+            data-i18n="sections.coursesOverview"
+          >
+            Nossos Cursos
+          </h2>
+
+          <div
+            class="courses-grid"
+            style="
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: var(--spacing-2xl);
+              margin-top: var(--spacing-2xl);
+            "
+          >
+            <!-- Computer Science Card -->
+            <div
+              class="theme-card scroll-animate"
+              style="border-left: 4px solid #00ff41"
+            >
+              <h3 style="color: #00ff41; margin-bottom: var(--spacing-lg)">
+                <span style="font-size: 2rem">💻</span>
+                <span data-i18n="common.computerScience">Informática</span>
+              </h3>
+              <p
+                style="margin-bottom: var(--spacing-lg)"
+                data-i18n="courses.cs.description"
+              >
+                Domine as tecnologias mais avançadas e prepare-se para uma
+                carreira no mundo digital.
+              </p>
+              <ul
+                style="
+                  list-style: none;
+                  padding: 0;
+                  margin-bottom: var(--spacing-lg);
+                "
+              >
+                <li style="margin-bottom: var(--spacing-sm)">
+                  •
+                  <span data-i18n="visitor.courses.cs.item1"
+                    >Programação e Desenvolvimento</span
+                  >
+                </li>
+                <li style="margin-bottom: var(--spacing-sm)">
+                  •
+                  <span data-i18n="visitor.courses.cs.item2"
+                    >Redes e Segurança</span
+                  >
+                </li>
+                <li style="margin-bottom: var(--spacing-sm)">
+                  •
+                  <span data-i18n="visitor.courses.cs.item3"
+                    >Inteligência Artificial</span
+                  >
+                </li>
+                <li>
+                  •
+                  <span data-i18n="visitor.courses.cs.item4"
+                    >Desenvolvimento Web e Mobile</span
+                  >
+                </li>
+              </ul>
+              <a
+                href="informatica.html"
+                class="hero-btn"
+                style="
+                  background: linear-gradient(-135deg, #50da00 0%, #00d4ff 100%);
+                  color: #ffffff;
+                  box-shadow: 0 10px 25px rgba(0, 255, 85, 0.555);
+                  padding: var(--spacing-sm) var(--spacing-lg);
+                  font-size: 0.875rem;
+                "
+              >
+                <span data-i18n="courses.learnMore">Saber Mais</span>  →
+              </a>
+            </div>
+
+            <!-- Electronics Card -->
+            <div
+              class="theme-card scroll-animate"
+              style="border-left: 4px solid #3b82f6; animation-delay: 0.1s"
+            >
+              <h3 style="color: #3b82f6; margin-bottom: var(--spacing-lg)">
+                <span style="font-size: 2rem">⚡</span>
+                <span data-i18n="common.electronicsTelecom"
+                  >Eletrônica e Telecomunicações</span
+                >
+              </h3>
+              <p
+                style="margin-bottom: var(--spacing-lg)"
+                data-i18n="courses.electronics.description"
+              >
+                Explore o mundo dos circuitos, comunicações e tecnologias
+                eletrônicas.
+              </p>
+              <ul
+                style="
+                  list-style: none;
+                  padding: 0;
+                  margin-bottom: var(--spacing-lg);
+                "
+              >
+                <li style="margin-bottom: var(--spacing-sm)">
+                  •
+                  <span data-i18n="visitor.courses.elec.item1"
+                    >Instalações Elétricas</span
+                  >
+                </li>
+                <li style="margin-bottom: var(--spacing-sm)">
+                  •
+                  <span data-i18n="visitor.courses.elec.item2"
+                    >Sistemas de Vigilância</span
+                  >
+                </li>
+                <li style="margin-bottom: var(--spacing-sm)">
+                  •
+                  <span data-i18n="visitor.courses.elec.item3"
+                    >Telecomunicações</span
+                  >
+                </li>
+                <li>
+                  •
+                  <span data-i18n="visitor.courses.elec.item4"
+                    >Energia Renovável</span
+                  >
+                </li>
+              </ul>
+              <a
+                href="eletronica.html"
+                class="hero-btn"
+                style="
+                 background: linear-gradient(135deg,#0284c7 0%,#12f84c9d 100%);
+                  color: #ffffff;
+                  box-shadow: 0 10px 25px rgba(0, 174, 255, 0.555);
+                  padding: var(--spacing-sm) var(--spacing-lg);
+                  font-size: 0.875rem;
+                "
+              >
+                <span data-i18n="courses.learnMore">Saber Mais </span>  →
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Facilities Section -->
+      <section id="facilities" class="section theme-section">
+        <div class="container">
+          <h2
+            class="section-title gradient-text"
+            data-i18n="sections.facilities"
+          >
+            Nossas Instalações
+          </h2>
+          <p
+            style="
+              text-align: center;
+              max-width: 600px;
+              margin: 0 auto var(--spacing-2xl);
+              color: var(--color-gray-600);
+            "
+            data-i18n="facilities.description"
+          >
+            Conheça nossa infraestrutura moderna projetada para proporcionar a
+            melhor experiência de aprendizagem.
+          </p>
+
+          <div class="facilities-gallery">
+            <div class="facility-card scroll-animate">
+              <img
+                src="assets/images/lab-computer.jpg"
+                alt="Laboratório de Informática"
+                onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\' viewBox=\'0 0 400 300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%236366f1\'/%3E%3C/svg%3E'"
+              />
+              <div class="facility-info">
+                <h4 data-i18n="facilities.computerLab">
+                  Laboratório de Informática
+                </h4>
+                <p data-i18n="facilities.computerLabDesc">
+                  Equipamentos de última geração
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="facility-card scroll-animate"
+              style="animation-delay: 0.1s"
+            >
+              <img
+                src="assets/images/lab-electronics.jpg"
+                alt="Laboratório de Eletrônica"
+                onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\' viewBox=\'0 0 400 300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%237c3aed\'/%3E%3C/svg%3E'"
+              />
+              <div class="facility-info">
+                <h4 data-i18n="facilities.electronicsLab">
+                  Laboratório de Eletrônica
+                </h4>
+                <p data-i18n="facilities.electronicsLabDesc">
+                  Prática com tecnologia avançada
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="facility-card scroll-animate"
+              style="animation-delay: 0.2s"
+            >
+              <img
+                src="assets/images/library.jpg"
+                alt="Biblioteca"
+                onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\' viewBox=\'0 0 400 300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%238b5cf6\'/%3E%3C/svg%3E'"
+              />
+              <div class="facility-info">
+                <h4 data-i18n="facilities.library">Biblioteca</h4>
+                <p data-i18n="facilities.libraryDesc">
+                  Recursos digitais e físicos
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="facility-card scroll-animate"
+              style="animation-delay: 0.3s"
+            >
+              <img
+                src="assets/images/auditorium.jpg"
+                alt="Auditório"
+                onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\' viewBox=\'0 0 400 300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23a78bfa\'/%3E%3C/svg%3E'"
+              />
+              <div class="facility-info">
+                <h4 data-i18n="facilities.auditorium">Auditório</h4>
+                <p data-i18n="facilities.auditoriumDesc">
+                  Espaço para eventos e palestras
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="facility-card scroll-animate"
+              style="animation-delay: 0.4s"
+            >
+              <img
+                src="assets/images/cafeteria.jpg"
+                alt="Cantina"
+                onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\' viewBox=\'0 0 400 300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23c4b5fd\'/%3E%3C/svg%3E'"
+              />
+              <div class="facility-info">
+                <h4 data-i18n="facilities.cafeteria">Cantina</h4>
+                <p data-i18n="facilities.cafeteriaDesc">
+                  Ambiente de convívio estudantil
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="facility-card scroll-animate"
+              style="animation-delay: 0.5s"
+            >
+              <img
+                src="assets/images/sports.jpg"
+                alt="Área Desportiva"
+                onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\' viewBox=\'0 0 400 300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23ddd6fe\'/%3E%3C/svg%3E'"
+              />
+              <div class="facility-info">
+                <h4 data-i18n="facilities.sports">Área Desportiva</h4>
+                <p data-i18n="facilities.sportsDesc">
+                  Espaço para atividades físicas
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Admission Process -->
+      <section id="admission" class="section">
+        <div class="container">
+          <h2
+            class="section-title gradient-text"
+            data-i18n="sections.admission"
+          >
+            Processo de Admissão
+          </h2>
+
+          <div
+            class="admission-steps"
+            style="max-width: 1000px; margin: 0 auto"
+          >
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: var(--spacing-xl);
+                margin-top: var(--spacing-2xl);
+              "
+            >
+              <!-- Step 1 -->
+              <div class="theme-card scroll-animate" style="text-align: center">
+                <div
+                  style="
+                    width: 60px;
+                    height: 60px;
+                    background: var(--theme-visitor-gradient);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0 auto var(--spacing-lg);
+                    color: white;
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                  "
+                >
+                  1
+                </div>
+                <h4
+                  style="
+                    color: var(--theme-visitor-dark);
+                    margin-bottom: var(--spacing-sm);
+                  "
+                  data-i18n="admission.step1Title"
+                >
+                  Documentação
+                </h4>
+                <p
+                  style="color: var(--color-gray-600)"
+                  data-i18n="admission.step1Desc"
+                >
+                  Prepare todos os documentos necessários para a inscrição
+                </p>
+              </div>
+
+              <!-- Step 2 -->
+              <div
+                class="theme-card scroll-animate"
+                style="text-align: center; animation-delay: 0.1s"
+              >
+                <div
+                  style="
+                    width: 60px;
+                    height: 60px;
+                    background: var(--theme-visitor-gradient);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0 auto var(--spacing-lg);
+                    color: white;
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                  "
+                >
+                  2
+                </div>
+                <h4
+                  style="
+                    color: var(--theme-visitor-dark);
+                    margin-bottom: var(--spacing-sm);
+                  "
+                  data-i18n="admission.step2Title"
+                >
+                  Inscrição
+                </h4>
+                <p
+                  style="color: var(--color-gray-600)"
+                  data-i18n="admission.step2Desc"
+                >
+                  Preencha o formulário de inscrição online ou presencialmente
+                </p>
+              </div>
+
+              <!-- Step 3 -->
+              <div
+                class="theme-card scroll-animate"
+                style="text-align: center; animation-delay: 0.2s"
+              >
+                <div
+                  style="
+                    width: 60px;
+                    height: 60px;
+                    background: var(--theme-visitor-gradient);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0 auto var(--spacing-lg);
+                    color: white;
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                  "
+                >
+                  3
+                </div>
+                <h4
+                  style="
+                    color: var(--theme-visitor-dark);
+                    margin-bottom: var(--spacing-sm);
+                  "
+                  data-i18n="admission.step3Title"
+                >
+                  Teste de Admissão
+                </h4>
+                <p
+                  style="color: var(--color-gray-600)"
+                  data-i18n="admission.step3Desc"
+                >
+                  Realize o teste de conhecimentos gerais
+                </p>
+              </div>
+
+              <!-- Step 4 -->
+              <div
+                class="theme-card scroll-animate"
+                style="text-align: center; animation-delay: 0.3s"
+              >
+                <div
+                  style="
+                    width: 60px;
+                    height: 60px;
+                    background: var(--theme-visitor-gradient);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0 auto var(--spacing-lg);
+                    color: white;
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                  "
+                >
+                  4
+                </div>
+                <h4
+                  style="
+                    color: var(--theme-visitor-dark);
+                    margin-bottom: var(--spacing-sm);
+                  "
+                  data-i18n="admission.step4Title"
+                >
+                  Matrícula
+                </h4>
+                <p
+                  style="color: var(--color-gray-600)"
+                  data-i18n="admission.step4Desc"
+                >
+                  Complete sua matrícula e junte-se à família IMPTEL
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="theme-card"
+              style="
+                margin-top: var(--spacing-2xl);
+                padding: var(--spacing-2xl);
+                background: var(--theme-visitor-light);
+              "
+            >
+              <h3
+                style="
+                  color: var(--theme-visitor-dark);
+                  margin-bottom: var(--spacing-lg);
+                "
+                data-i18n="admission.documentsTitle"
+              >
+                Documentos Necessários
+              </h3>
+              <ul style="list-style: none; padding: 0">
+                <li
+                  style="
+                    margin-bottom: var(--spacing-sm);
+                    padding-left: var(--spacing-lg);
+                    position: relative;
+                  "
+                >
+                  <span
+                    style="
+                      position: absolute;
+                      left: 0;
+                      color: var(--theme-visitor-accent);
+                    "
+                    >📄</span
+                  >
+                  <span data-i18n="admission.doc1"
+                    >Certificado de habilitações</span
+                  >
+                </li>
+                <li
+                  style="
+                    margin-bottom: var(--spacing-sm);
+                    padding-left: var(--spacing-lg);
+                    position: relative;
+                  "
+                >
+                  <span
+                    style="
+                      position: absolute;
+                      left: 0;
+                      color: var(--theme-visitor-accent);
+                    "
+                    >📋</span
+                  >
+                  <span data-i18n="admission.doc2">Bilhete de identidade</span>
+                </li>
+                <li
+                  style="
+                    margin-bottom: var(--spacing-sm);
+                    padding-left: var(--spacing-lg);
+                    position: relative;
+                  "
+                >
+                  <span
+                    style="
+                      position: absolute;
+                      left: 0;
+                      color: var(--theme-visitor-accent);
+                    "
+                    >📸</span
+                  >
+                  <span data-i18n="admission.doc3"
+                    >4 Fotografias tipo passe</span
+                  >
+                </li>
+                <li style="padding-left: var(--spacing-lg); position: relative">
+                  <span
+                    style="
+                      position: absolute;
+                      left: 0;
+                      color: var(--theme-visitor-accent);
+                    "
+                    >🏥</span
+                  >
+                  <span data-i18n="admission.doc4">Atestado médico</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="section theme-section">
+        <div class="container">
+          <h2 class="section-title gradient-text" data-i18n="sections.faq">
+            Perguntas Frequentes
+          </h2>
+
+          <div class="faq-container">
+            <div class="faq-item scroll-animate">
+              <div class="faq-question" onclick="toggleFAQ(this)">
+                <span data-i18n="faq.q1">Qual é a duração dos cursos?</span>
+                <span class="faq-icon">+</span>
+              </div>
+              <div class="faq-answer">
+                <p data-i18n="faq.a1">
+                  Os nossos cursos têm duração de 3 anos, com possibilidade de
+                  estágios profissionais no último ano.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item scroll-animate" style="animation-delay: 0.1s">
+              <div class="faq-question" onclick="toggleFAQ(this)">
+                <span data-i18n="faq.q2"
+                  >Quais são os requisitos de entrada?</span
+                >
+                <span class="faq-icon">+</span>
+              </div>
+              <div class="faq-answer">
+                <p data-i18n="faq.a2">
+                  É necessário ter concluído o ensino médio (12ª classe) e
+                  passar no teste de admissão.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item scroll-animate" style="animation-delay: 0.2s">
+              <div class="faq-question" onclick="toggleFAQ(this)">
+                <span data-i18n="faq.q3"
+                  >O instituto oferece bolsas de estudo?</span
+                >
+                <span class="faq-icon">+</span>
+              </div>
+              <div class="faq-answer">
+                <p data-i18n="faq.a3">
+                  Sim, oferecemos bolsas de mérito para os melhores alunos e
+                  bolsas sociais para estudantes carenciados.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item scroll-animate" style="animation-delay: 0.3s">
+              <div class="faq-question" onclick="toggleFAQ(this)">
+                <span data-i18n="faq.q4"
+                  >Existe apoio para colocação profissional?</span
+                >
+                <span class="faq-icon">+</span>
+              </div>
+              <div class="faq-answer">
+                <p data-i18n="faq.a4">
+                  Sim, temos parcerias com mais de 50 empresas e oferecemos
+                  apoio completo na colocação profissional dos nossos graduados.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="section">
+        <div class="container">
+          <h2 class="section-title gradient-text" data-i18n="sections.contact">
+            Entre em Contacto
+          </h2>
+
+          <div class="contact-grid">
+            <div>
+              <h3
+                style="
+                  color: var(--theme-visitor-dark);
+                  margin-bottom: var(--spacing-lg);
+                "
+                data-i18n="contact.visitUs"
+              >
+                Visite-nos
+              </h3>
+
+              <div class="theme-card" style="padding: var(--spacing-xl)">
+                <div style="margin-bottom: var(--spacing-lg)">
+                  <h4
+                    style="
+                      color: var(--theme-visitor-primary);
+                      margin-bottom: var(--spacing-sm);
+                    "
+                  >
+                    📍 <span data-i18n="contact.address">Endereço</span>
+                  </h4>
+                  <p data-i18n="common.addressFull">
+                    Rua Principal, Nº 123<br />Luanda, Angola
+                  </p>
+                </div>
+
+                <div style="margin-bottom: var(--spacing-lg)">
+                  <h4
+                    style="
+                      color: var(--theme-visitor-primary);
+                      margin-bottom: var(--spacing-sm);
+                    "
+                  >
+                    📞 <span data-i18n="contact.phone">Telefone</span>
+                  </h4>
+                  <p data-i18n="common.phoneFull">
+                    +244 940 19 57 52<br />+244 923 456 790
+                  </p>
+                </div>
+
+                <div style="margin-bottom: var(--spacing-lg)">
+                  <h4
+                    style="
+                      color: var(--theme-visitor-primary);
+                      margin-bottom: var(--spacing-sm);
+                    "
+                  >
+                    ✉️ <span data-i18n="contact.email">Email</span>
+                  </h4>
+                  <p data-i18n="common.emailFull">
+                    info@imptel.ao<br />admissoes@imptel.ao
+                  </p>
+                </div>
+
+                <div>
+                  <h4
+                    style="
+                      color: var(--theme-visitor-primary);
+                      margin-bottom: var(--spacing-sm);
+                    "
+                  >
+                    🕐 <span data-i18n="contact.hours">Horário</span>
+                  </h4>
+                  <p data-i18n="contact.hoursText">
+                    Segunda a Sexta: 8h00 - 17h00<br />Sábado: 8h00 - 12h00
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3
+                style="
+                  color: var(--theme-visitor-dark);
+                  margin-bottom: var(--spacing-lg);
+                "
+                data-i18n="contact.sendMessage"
+              >
+                Envie uma Mensagem
+              </h3>
+
+              <form
+                class="contact-form theme-card"
+                style="padding: var(--spacing-xl)"
+              >
+                <div class="form-group">
+                  <label for="name" data-i18n="form.name">Nome Completo</label>
+                  <input type="text" id="name" name="name" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="email" data-i18n="form.email">Email</label>
+                  <input type="email" id="email" name="email" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="subject" data-i18n="form.subject">Assunto</label>
+                  <select id="subject" name="subject" required>
+                    <option value="" data-i18n="form.selectSubject">
+                      Selecione um assunto
+                    </option>
+                    <option value="admission" data-i18n="form.subjectAdmission">
+                      Admissões
+                    </option>
+                    <option value="courses" data-i18n="form.subjectCourses">
+                      Cursos
+                    </option>
+                    <option value="general" data-i18n="form.subjectGeneral">
+                      Informações Gerais
+                    </option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="message" data-i18n="form.message">Mensagem</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="4"
+                    required
+                  ></textarea>
+                </div>
+
+                <button type="submit" class="hero-btn" data-i18n="form.send">
+                  Enviar Mensagem
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Map Container -->
+<div style="text-align: center; margin-top: 5rem; margin-bottom: 0.4rem;">
+  <div class="map-header">
+    <h2 style="color: #020202e3; font-size: 2rem; font-weight: bold; margin: 0;">
+      Localização IMPTEL
+    </h2>
+  </div>
+  <button id="toggle-satellite" style="margin-bottom: 3px; background: #6366f1; color: #fff; border: none; border-radius: 3px; padding: 7px 14px; font-weight: 500; cursor: pointer;">
+    Alternar Vista Satélite
+  </button>
+  <div id="map" style="height: 400px; width: 100%; border-radius: 8px; border: 2px solid #e5e7eb;"></div>
+</div>
+<!-- ...código posterior... -->
+          
+      </section>
+
+      <!-- Newsletter Section -->
+      <section
+        class="section"
+        style="
+          background: var(--theme-visitor-gradient);
+          color: var(--color-white);
+          text-align: center;
+        "
+      >
+        <div class="container">
+          <h2
+            style="color: var(--color-white); margin-bottom: var(--spacing-lg)"
+            data-i18n="newsletter.title"
+          >
+            Mantenha-se Informado
+          </h2>
+          <p
+            style="
+              max-width: 600px;
+              margin: 0 auto var(--spacing-2xl);
+              opacity: 0.9;
+            "
+            data-i18n="newsletter.description"
+          >
+            Receba as últimas notícias, eventos e oportunidades do IMPTEL
+            diretamente no seu email.
+          </p>
+
+          <form
+            class="newsletter-form"
+            style="
+              max-width: 500px;
+              margin: 0 auto;
+              display: flex;
+              gap: var(--spacing-md);
+            "
+          >
+            <input
+              type="email"
+              placeholder="Seu email"
+              data-i18n-placeholder="common.emailPlaceholder"
+              required
+              style="
+                flex: 1;
+                padding: var(--spacing-md);
+                border: none;
+                border-radius: var(--radius-md);
+              "
+            />
+            <button
+              type="submit"
+              class="hero-btn"
+              style="
+                background: var(--color-white);
+                color: var(--theme-visitor-primary);
+                border: 2px solid var(--theme-visitor-primary);
+              "
+              data-i18n="newsletter.subscribe"
+            >
+              Subscrever
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" aria-label="Back to top">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M5 10l7-7m0 0l7 7m-7-7v18"
+        ></path>
+      </svg>
+    </button>
+
+    <!-- Footer -->
+    <footer
+      class="footer"
+      style="
+        background: var(--color-gray-900);
+        color: var(--color-white);
+        padding: var(--spacing-3xl) 0;
+      "
+    >
+      <div class="container">
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-2xl);
+          "
+        >
+          <div>
+            <h3
+              style="margin-bottom: var(--spacing-lg)"
+              data-i18n="footer.about"
+            >
+              Sobre o Instituto
+            </h3>
+            <p
+              style="color: var(--color-gray-400)"
+              data-i18n="footer.aboutDesc"
+            >
+              IMPTEL - 13 anos formando profissionais de excelência em
+              tecnologia.
+            </p>
+
+            <div style="margin-top: var(--spacing-lg)">
+              <h4
+                style="margin-bottom: var(--spacing-sm)"
+                data-i18n="footer.followUs"
+              >
+                Siga-nos
+              </h4>
+              <div style="display: flex; gap: var(--spacing-md)">
+                <a
+                  href="#"
+                  style="color: var(--color-gray-400); font-size: 1.5rem"
+                  >📘</a
+                >
+                <a
+                  href="#"
+                  style="color: var(--color-gray-400); font-size: 1.5rem"
+                  >📷</a
+                >
+                <a
+                  href="#"
+                  style="color: var(--color-gray-400); font-size: 1.5rem"
+                  >🐦</a
+                >
+                <a
+                  href="#"
+                  style="color: var(--color-gray-400); font-size: 1.5rem"
+                  >📺</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3
+              style="margin-bottom: var(--spacing-lg)"
+              data-i18n="footer.quickLinks"
+            >
+              Links Rápidos
+            </h3>
+            <ul style="list-style: none; padding: 0">
+              <li style="margin-bottom: var(--spacing-sm)">
+                <a
+                  href="#about"
+                  style="
+                    color: var(--color-gray-400);
+                    transition: color var(--transition-fast);
+                  "
+                  data-i18n="footer.aboutLink"
+                  >Sobre Nós</a
+                >
+              </li>
+              <li style="margin-bottom: var(--spacing-sm)">
+                <a
+                  href="#courses"
+                  style="
+                    color: var(--color-gray-400);
+                    transition: color var(--transition-fast);
+                  "
+                  data-i18n="footer.coursesLink"
+                  >Cursos</a
+                >
+              </li>
+              <li style="margin-bottom: var(--spacing-sm)">
+                <a
+                  href="#facilities"
+                  style="
+                    color: var(--color-gray-400);
+                    transition: color var(--transition-fast);
+                  "
+                  data-i18n="footer.facilitiesLink"
+                  >Instalações</a
+                >
+              </li>
+              <li style="margin-bottom: var(--spacing-sm)">
+                <a
+                  href="#admission"
+                  style="
+                    color: var(--color-gray-400);
+                    transition: color var(--transition-fast);
+                  "
+                  data-i18n="footer.admissionLink"
+                  >Admissões</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3
+              style="margin-bottom: var(--spacing-lg)"
+              data-i18n="footer.programs"
+            >
+              Programas Académicos
+            </h3>
+            <ul style="list-style: none; padding: 0">
+              <li style="margin-bottom: var(--spacing-sm)">
+                <a
+                  href="informatica.html"
+                  style="
+                    color: var(--color-gray-400);
+                    transition: color var(--transition-fast);
+                  "
+                  data-i18n="common.computerScience"
+                  >Informática</a
+                >
+              </li>
+              <li style="margin-bottom: var(--spacing-sm)">
+                <a
+                  href="eletronica.html"
+                  style="
+                    color: var(--color-gray-400);
+                    transition: color var(--transition-fast);
+                  "
+                  data-i18n="common.electronics"
+                  >Eletrônica</a
+                >
+              </li>
+              <li style="margin-bottom: var(--spacing-sm)">
+                <a
+                  href="#"
+                  style="
+                    color: var(--color-gray-400);
+                    transition: color var(--transition-fast);
+                  "
+                  data-i18n="footer.shortCourses"
+                  >Cursos de Curta Duração</a
+                >
+              </li>
+              <li style="margin-bottom: var(--spacing-sm)">
+                <a
+                  href="#"
+                  style="
+                    color: var(--color-gray-400);
+                    transition: color var(--transition-fast);
+                  "
+                  data-i18n="footer.certifications"
+                  >Certificações</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3
+              style="margin-bottom: var(--spacing-lg)"
+              data-i18n="footer.contact"
+            >
+              Contactos
+            </h3>
+            <ul
+              style="list-style: none; padding: 0; color: var(--color-gray-400)"
+            >
+              <li style="margin-bottom: var(--spacing-sm)">
+                📍 <span data-i18n="common.address">Luanda, Angola</span>
+              </li>
+              <li style="margin-bottom: var(--spacing-sm)">
+                📞 +244 940 19 57 52
+              </li>
+              <li style="margin-bottom: var(--spacing-sm)">
+                ✉️ info@imptel.ao
+              </li>
+              <li style="margin-bottom: var(--spacing-sm)">
+                🕐 Seg-Sex: 8h-17h
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          style="
+            margin-top: var(--spacing-2xl);
+            padding-top: var(--spacing-2xl);
+            border-top: 1px solid var(--color-gray-800);
+            text-align: center;
+            color: var(--color-gray-500);
+          "
+        >
+          <p>
+            &copy; 2025 Instituto Médio Privado de Tecnologia. Todos os direitos reservados.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/utils.js"></script>
+    <script src="assets/js/translations.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/language-switcher.js"></script>
+    <script src="assets/js/form-handler.js"></script>
+
+    <script>
+  // Slideshow functionality
+  let slideIndex = 0;
+  let slides, dots, slideInterval;
+
+  function showSlides(n) {
+    slides = document.querySelectorAll(".slide");
+    dots = document.querySelectorAll(".dot");
+    if (slides.length === 0) return;
+
+    // Corrige o índice se sair do intervalo
+    if (n >= slides.length) slideIndex = 0;
+    if (n < 0) slideIndex = slides.length - 1;
+
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("active", i === slideIndex);
+    });
+    dots.forEach((dot, i) => {
+      dot.classList.toggle("active", i === slideIndex);
+    });
+  }
+
+  function nextSlide() {
+    slideIndex++;
+    showSlides(slideIndex);
+  }
+
+  function currentSlide(n) {
+    slideIndex = n;
+    showSlides(slideIndex);
+    resetInterval();
+  }
+
+  function resetInterval() {
+    clearInterval(slideInterval);
+    slideInterval = setInterval(nextSlide, 5000);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    slideIndex = 0;
+    showSlides(slideIndex);
+    slideInterval = setInterval(nextSlide, 5000);
+
+    // Adiciona evento aos dots
+    document.querySelectorAll(".dot").forEach((dot, i) => {
+      dot.onclick = () => currentSlide(i);
+    });
+  });
+</script>
+
+    <!-- Dynamic SVG Placeholder Script -->
+    <script>
+      // Function to generate SVG with translated text
+      function generateSVGPlaceholder(
+        text,
+        width,
+        height,
+        bgColor,
+        textColor = "#ffffff",
+        fontSize = "24"
+      ) {
+        // Remove the % from bgColor if it exists (it's already encoded)
+        const cleanBgColor = bgColor.replace("%23", "#");
+        const cleanTextColor = textColor.replace("%23", "#");
+
+        const svg = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='${width}' height='${height}' viewBox='0 0 ${width} ${height}'%3E%3Crect width='${width}' height='${height}' fill='${encodeURIComponent(
+          cleanBgColor
+        )}'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='${encodeURIComponent(
+          cleanTextColor
+        )}' font-family='Arial, sans-serif' font-size='${fontSize}' font-weight='bold'%3E${encodeURIComponent(
+          text
+        )}%3C/text%3E%3C/svg%3E`;
+        return svg;
+      }
+
+      // Function to update image placeholders with translated text
+      function updateImagePlaceholders() {
+        // Get current language
+        const currentLang = window.i18n
+          ? window.i18n.getCurrentLanguage()
+          : "pt";
+
+        // Define placeholder configurations
+        const placeholders = [
+          {
+            selector: 'img[alt="IMPTEL Campus"]',
+            key: "Campus IMPTEL",
+            width: 1920,
+            height: 1080,
+            bgColor: "#4a4a6a",
+            fontSize: "48",
+          },
+          {
+            selector: 'img[alt="Laboratórios IMPTEL"]',
+            key: "Laboratórios",
+            width: 1920,
+            height: 1080,
+            bgColor: "#5a5a7a",
+            fontSize: "48",
+          },
+          {
+            selector: 'img[alt="Estudantes IMPTEL"]',
+            key: "Estudantes",
+            width: 1920,
+            height: 1080,
+            bgColor: "#6a6a8a",
+            fontSize: "48",
+          },
+          {
+            selector: 'img[alt="Laboratório de Informática"]',
+            key: "facilities.computerLab",
+            width: 400,
+            height: 300,
+            bgColor: "#6366f1",
+          },
+          {
+            selector: 'img[alt="Laboratório de Eletrônica"]',
+            key: "facilities.electronicsLab",
+            width: 400,
+            height: 300,
+            bgColor: "#7c3aed",
+          },
+          {
+            selector: 'img[alt="Biblioteca"]',
+            key: "facilities.library",
+            width: 400,
+            height: 300,
+            bgColor: "#8b5cf6",
+          },
+          {
+            selector: 'img[alt="Auditório"]',
+            key: "facilities.auditorium",
+            width: 400,
+            height: 300,
+            bgColor: "#a78bfa",
+          },
+          {
+            selector: 'img[alt="Cantina"]',
+            key: "facilities.cafeteria",
+            width: 400,
+            height: 300,
+            bgColor: "#c4b5fd",
+          },
+          {
+            selector: 'img[alt="Área Desportiva"]',
+            key: "facilities.sports",
+            width: 400,
+            height: 300,
+            bgColor: "#ddd6fe",
+            textColor: "#333333",
+          },
+        ];
+
+        // Update each placeholder
+        placeholders.forEach((config) => {
+          const img = document.querySelector(config.selector);
+          if (img) {
+            // Get translated text
+            let text = config.key;
+            if (window.i18n && config.key.includes(".")) {
+              text = window.i18n.translate(config.key) || config.key;
+            }
+
+            // Generate SVG with translated text
+            const svg = generateSVGPlaceholder(
+              text,
+              config.width,
+              config.height,
+              config.bgColor,
+              config.textColor || "#ffffff",
+              config.fontSize || "24"
+            );
+
+            // Force use SVG placeholder directly
+            img.src = svg;
+
+            // Update onerror handler to use the dynamic SVG
+            img.onerror = function () {
+              this.src = svg;
+            };
+          }
+        });
+      }
+
+      // Update placeholders when DOM is loaded
+      document.addEventListener("DOMContentLoaded", updateImagePlaceholders);
+
+      // Update placeholders when language changes
+      document.addEventListener("languageChanged", updateImagePlaceholders);
+
+      // Also listen for clicks on language switcher buttons
+      document.addEventListener("click", function (e) {
+        if (e.target.closest(".language-switcher button")) {
+          setTimeout(updateImagePlaceholders, 100);
+        }
+      });
+    </script>
+
+<!-- Leaflet JavaScript -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""></script>
+
+<script>
+// Função para inicializar o mapa gratuito com alternância de satélite
+function initMap() {
+    const imptelLocation = [-8.920431, 13.264137];
+
+    // Camadas base
+    const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        maxZoom: 19
+    });
+
+    const satelite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+        attribution: 'Tiles © Esri'
+    });
+
+    // Criar o mapa
+    const map = L.map('map', {
+        center: imptelLocation,
+        zoom: 15,
+        layers: [osm]
+    });
+
+    // Guardar referência para alternância
+    window._imptelMap = map;
+    window._imptelLayers = { osm, satelite };
+    window._imptelIsSatellite = false;
+
+    // Marcador personalizado
+    const imptelIcon = L.divIcon({
+        className: 'custom-marker',
+        html: `
+            <div style="
+                background: #6366f1;
+                border: 3px solid white;
+                border-radius: 50%;
+                width: 30px;
+                height: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+                font-size: 16px;
+            ">
+                🏫
+            </div>
+        `,
+        iconSize: [30, 30],
+        iconAnchor: [15, 15]
+    });
+
+    const marker = L.marker(imptelLocation, { icon: imptelIcon }).addTo(map);
+
+    marker.bindPopup(`
+        <div style="text-align: center;">
+            <h3 style="margin: 0 0 5px 0; color: #6366f1;">🏫 IMPTEL</h3>
+            <p><strong>Instituto Médio Privado de Tecnologia</strong></p>
+            <p>📍 Luanda, Angola</p>
+            <p>📞 +244 940 19 57 52</p>
+            <br>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=${imptelLocation[0]},${imptelLocation[1]}" 
+               target="_blank" style="color: #6366f1; text-decoration: none;">
+                🗺️ <strong>Obter Direções</strong>
+            </a>
+        </div>
+    `);
+}
+
+// Alternar camada do mapa
+function toggleSatellite() {
+    const map = window._imptelMap;
+    const { osm, satelite } = window._imptelLayers;
+    if (!map) return;
+
+    if (window._imptelIsSatellite) {
+        map.removeLayer(satelite);
+        map.addLayer(osm);
+        window._imptelIsSatellite = false;
+    } else {
+        map.removeLayer(osm);
+        map.addLayer(satelite);
+        window._imptelIsSatellite = true;
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    initMap();
+    document.getElementById('toggle-satellite').addEventListener('click', toggleSatellite);
+});
+</script>
+  </body>
+</html>

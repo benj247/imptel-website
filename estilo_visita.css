@@ -1,0 +1,587 @@
+/* =================================
+   ESTILOS GLOBAIS
+   ================================= */
+body {
+  padding-top: 60px;
+}
+
+/* =================================
+   SEÇÃO HERO (PÁGINA INICIAL)
+   ================================= */
+.secao-hero {
+  background: linear-gradient(135deg, #1e1e2e85 0%, #2d2d44 0%);
+}
+
+.hero-section {
+  min-height: calc(100vh - 60px);
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.slideshow-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slide-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(59, 59, 73, 0.336);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.336);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  padding: var(--spacing-3xl);
+  border-radius: var(--radius-xl);
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0);
+}
+
+.hero-content h1 {
+  color: var(--theme-visitor-primary);
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-lg);
+  text-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+}
+
+.hero-content p {
+  color: var(--color-white);
+  font-size: 1.25rem;
+  margin-bottom: var(--spacing-2xl);
+  opacity: 0.9;
+}
+
+.slideshow-dots {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 3;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.dot.active {
+  background: var(--theme-visitor-accent);
+  transform: scale(1.2);
+}
+
+/* Botões do Hero */
+.hero-buttons {
+  display: flex;
+  gap: var(--spacing-lg);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-btn {
+  padding: var(--spacing-md) var(--spacing-2xl);
+  background: var(--theme-visitor-gradient);
+  color: var(--color-white);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  transition: all var(--transition-base);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: none;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.hero-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+}
+
+.hero-btn.secondary {
+  background: transparent;
+  border: 2px solid var(--theme-visitor-primary);
+  color: var(--theme-visitor-primary);
+}
+
+.hero-btn.secondary:hover {
+  background: var(--theme-visitor-primary);
+  color: var(--color-white);
+}
+
+/* =================================
+            SEÇÃO ESTATÍSTICAS
+        ================================= */
+.secao-estatisticas {
+  background: #1e293b; /* Cor de fundo específica para estatísticas */
+  padding: var(--spacing-3xl) 0;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-2xl);
+}
+
+.stat-card {
+  background: #1e293b;
+  border: 2px solid #1e293b; /* Cor específica para cards de estatísticas */
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-2xl);
+  text-align: center;
+  transition: all var(--transition-base);
+}
+
+.stat-card:hover {
+  border-color: #3b82f6; /* Cor de hover específica para estatísticas */
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(46, 137, 255, 0.459);
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #f3f7ff;
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #00d4ff;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 1.1rem;
+  color: #cbd5e1;
+}
+
+.secao-estatisticas .section-title {
+  color: rgb(255, 255, 255); /* Só para o título da seção estatísticas */
+}
+
+/* =================================
+        SEÇÃO CURSOS
+        ================================= */
+
+.secao-cursos {
+  background: #1e293b; /* Cor de fundo específica para cursos */
+  padding: var(--spacing-3xl) 0;
+}
+
+.secao-cursos .theme-card {
+  background: var(--color-white);
+  border: 2px solid #0ea5e9; /* Cor específica para cards de cursos */
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-base);
+}
+
+.secao-cursos .theme-card:hover {
+  border-color: #04d686;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(2, 199, 51, 0.774);
+}
+
+.secao-cursos h2 {
+  color: #0284c7; /* Cor específica para títulos da seção cursos */
+}
+
+/* =================================
+   SEÇÃO INSTALAÇÕES
+   ================================= */
+.secao-instalacoes {
+  background: #faf5ff; /* Cor de fundo específica para instalações */
+  padding: var(--spacing-3xl) 0;
+}
+
+.facilities-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-2xl);
+}
+
+.facility-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  height: 300px;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  border: 2px solid #a855f7; /* Cor específica para cards de instalações */
+}
+
+.facility-card:hover {
+  transform: translateY(-5px);
+  border-color: #9333ea;
+  box-shadow: 0 10px 30px rgba(147, 51, 234, 0.2);
+}
+
+.facility-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.facility-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--spacing-lg);
+  background: linear-gradient(to top, rgba(168, 85, 247, 0.8), transparent);
+  color: var(--color-white);
+}
+
+.secao-instalacoes h2 {
+  color: #9333ea; /* Cor específica para títulos da seção instalações */
+}
+
+/* =================================
+   SEÇÃO SOBRE
+   ================================= */
+.secao-sobre {
+  background: #f0fdf4; /* Cor de fundo específica para sobre */
+  padding: var(--spacing-3xl) 0;
+}
+
+.secao-sobre .theme-card {
+  background: var(--color-white);
+  border: 2px solid #22c55e; /* Cor específica para cards da seção sobre */
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-base);
+}
+
+.secao-sobre .theme-card:hover {
+  border-color: #16a34a;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(22, 163, 74, 0.2);
+}
+
+.secao-sobre h2 {
+  color: #16a34a; /* Cor específica para títulos da seção sobre */
+}
+
+/* =================================
+   SEÇÃO CONTATO
+   ================================= */
+.secao-contato {
+  background: #fef3c7; /* Cor de fundo específica para contato */
+  padding: var(--spacing-3xl) 0;
+}
+
+#map {
+  width: 100%;
+  height: 400px;
+  border-radius: var(--radius-lg);
+  margin-top: var(--spacing-xl);
+  border: 3px solid #f59e0b; /* Cor específica para o mapa */
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-2xl);
+  margin-top: var(--spacing-2xl);
+}
+
+.contact-form {
+  background: var(--color-white);
+  border: 2px solid #f59e0b; /* Cor específica para formulário de contato */
+  transition: all var(--transition-base);
+}
+
+.contact-form:hover {
+  border-color: #d97706;
+  box-shadow: 0 10px 30px rgba(217, 119, 6, 0.1);
+}
+
+.secao-contato h2 {
+  color: #d97706; /* Cor específica para títulos da seção contato */
+}
+
+/* =================================
+   SEÇÃO FAQ
+   ================================= */
+.secao-faq {
+  background: #fdf2f8; /* Cor de fundo específica para FAQ */
+  padding: var(--spacing-3xl) 0;
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: var(--color-white);
+  border: 2px solid #ec4899; /* Cor específica para items do FAQ */
+  border-radius: var(--radius-md);
+  margin-bottom: var(--spacing-md);
+  overflow: hidden;
+  transition: all var(--transition-base);
+}
+
+.faq-item:hover {
+  border-color: #db2777;
+  box-shadow: 0 5px 15px rgba(219, 39, 119, 0.1);
+}
+
+.faq-question {
+  padding: var(--spacing-lg);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  transition: background var(--transition-fast);
+}
+
+.faq-question:hover {
+  background: #fce7f3;
+}
+
+.faq-answer {
+  padding: 0 var(--spacing-lg);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+}
+
+.faq-item.active .faq-answer {
+  padding: var(--spacing-lg);
+  max-height: 500px;
+}
+
+.faq-icon {
+  transition: transform var(--transition-fast);
+  color: #ec4899;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(45deg);
+}
+
+.secao-faq h2 {
+  color: #db2777; /* Cor específica para títulos da seção FAQ */
+}
+
+/* =================================
+   FORMULÁRIOS
+   ================================= */
+.form-group {
+  margin-bottom: var(--spacing-lg);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: var(--spacing-sm);
+  color: var(--theme-visitor-dark);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: var(--spacing-md);
+  border: 2px solid var(--color-gray-200);
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all var(--transition-base);
+  background: var(--color-gray-50);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--theme-visitor-primary);
+  background: var(--color-white);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--color-gray-400);
+}
+
+.form-group select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236366f1' d='M10.293 3.293L6 7.586 1.707 3.293A1 1 0 00.293 4.707l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--spacing-md) center;
+  padding-right: var(--spacing-2xl);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-form .hero-btn {
+  width: 100%;
+  margin-top: var(--spacing-md);
+}
+
+/* =================================
+   NEWSLETTER
+   ================================= */
+.newsletter-form {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.newsletter-form input[type="email"] {
+  flex: 1;
+  padding: var(--spacing-md);
+  border: 2px solid var(--color-gray-200);
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+}
+
+.newsletter-form button {
+  padding: var(--spacing-md) var(--spacing-xl);
+  background: var(--theme-visitor-gradient);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+/* =================================
+   MEDIA QUERIES RESPONSIVAS
+   ================================= */
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr !important;
+    gap: var(--spacing-xl) !important;
+  }
+
+  .courses-grid {
+    grid-template-columns: 1fr !important;
+    gap: var(--spacing-xl) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .newsletter-form {
+    flex-direction: column !important;
+  }
+
+  .newsletter-form input[type="email"] {
+    width: 100%;
+  }
+
+  .newsletter-form button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 415px) {
+  .about-grid {
+    gap: var(--spacing-lg) !important;
+  }
+
+  .courses-grid {
+    gap: var(--spacing-lg) !important;
+  }
+
+  .theme-card {
+    padding: var(--spacing-lg);
+  }
+
+  /* =================================
+   Google Maps
+   ================================= */
+  #map {
+    height: 400px;
+    width: 100%;
+    border-radius: 8px;
+    border: 2px solid #e5e7eb;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .map-header {
+    text-align: center;
+    margin-bottom: 0px;
+  }
+
+  .map-header h2 {
+    color: #6366f1;
+    margin: 0 0 10px 0;
+  }
+
+  .custom-marker {
+    background: transparent !important;
+    border: none !important;
+  }
+
+  @media (max-width: 768px) {
+    #map {
+      height: 300px;
+    }
+  }
+}

@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="IMPTEL - Curso de Eletrônica e Telecomunicações. Domine circuitos e sistemas de comunicação."
+    />
+    <title>Eletrônica e Telecomunicações - IMPTEL</title>
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/themes.css" />
+    <link rel="stylesheet" href="assets/css/animations.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* Page specific styles */
+      body {
+        padding-top: 60px; /* Account for fixed header */
+      }
+
+      .hero-section {
+        min-height: calc(100vh - 60px);
+        position: relative;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        background: #000000;
+      }
+
+      @media (max-width: 768px) {
+        .hero-section {
+          min-height: auto;
+          padding: var(--spacing-2xl) 0;
+        }
+      }
+
+      .circuits-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .circuits-container object,
+      .circuits-container img {
+        position: relative;
+        z-index: 1;
+      }
+
+      .circuits-container canvas {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        z-index: 10 !important;
+        pointer-events: none !important;
+      }
+
+      #circuits-canvas {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        background: rgba(15, 23, 42, 0.8);
+        backdrop-filter: blur(10px);
+        padding: var(--spacing-3xl);
+        border-radius: var(--radius-xl);
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+        border: 1px solid rgba(59, 130, 246, 0.3);
+      }
+
+      @media (max-width: 768px) {
+        .hero-content {
+          padding: var(--spacing-xl);
+          margin: 0 var(--spacing-md);
+        }
+      }
+
+      @media (max-width: 415px) {
+        .hero-content {
+          padding: var(--spacing-lg);
+          margin: 0 var(--spacing-sm);
+          max-width: 95%;
+        }
+      }
+
+      .hero-content h1 {
+        color: var(--theme-elec-accent);
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: var(--spacing-lg);
+        text-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+      }
+
+      .hero-content p {
+        color: var(--color-white);
+        font-size: 1.25rem;
+        margin-bottom: var(--spacing-2xl);
+      }
+
+      @media (max-width: 768px) {
+        .hero-content h1 {
+          font-size: 2rem;
+        }
+
+        .hero-content p {
+          font-size: 1rem;
+        }
+      }
+
+      @media (max-width: 415px) {
+        .hero-content h1 {
+          font-size: 1.5rem;
+          line-height: 1.2;
+        }
+
+        .hero-content p {
+          font-size: 0.875rem;
+          margin-bottom: var(--spacing-lg);
+        }
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: var(--spacing-lg);
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .hero-btn {
+        padding: var(--spacing-md) var(--spacing-2xl);
+        background: var(--theme-elec-gradient);
+        color: var(--color-white);
+        border-radius: var(--radius-md);
+        font-weight: 600;
+        transition: all var(--transition-base);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .hero-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+      }
+
+      @media (max-width: 480px) {
+        .hero-buttons {
+          flex-direction: column;
+          gap: var(--spacing-md);
+        }
+
+        .hero-btn {
+          width: 100%;
+          padding: var(--spacing-md) var(--spacing-lg);
+        }
+      }
+
+      @media (max-width: 415px) {
+        .hero-buttons {
+          gap: var(--spacing-sm);
+        }
+
+        .hero-btn {
+          padding: var(--spacing-sm) var(--spacing-md);
+          font-size: 0.875rem;
+        }
+      }
+
+      .course-card {
+        background: var(--color-white);
+        border: 2px solid var(--theme-elec-light);
+        border-radius: var(--radius-lg);
+        padding: var(--spacing-2xl);
+        transition: all var(--transition-base);
+        text-align: center;
+      }
+
+      .course-card:hover {
+        border-color: var(--theme-elec-accent);
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+      }
+
+      .course-icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto var(--spacing-lg);
+        background: var(--theme-elec-light);
+        border-radius: var(--radius-lg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--theme-elec-primary);
+      }
+
+      .course-icon svg {
+        width: 50px;
+        height: 50px;
+      }
+
+      .circuit-diagram {
+        background: #f0f9ff;
+        border: 2px solid var(--theme-elec-light);
+        border-radius: var(--radius-md);
+        padding: var(--spacing-lg);
+        margin: var(--spacing-lg) 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .lab-equipment {
+        background: linear-gradient(
+          135deg,
+          var(--theme-elec-light) 0%,
+          rgba(219, 234, 254, 0.5) 100%
+        );
+        padding: var(--spacing-2xl);
+        border-radius: var(--radius-lg);
+        margin: var(--spacing-lg) 0;
+      }
+
+      /* Labs Grid Responsive */
+      @media (max-width: 768px) {
+        .labs-grid {
+          grid-template-columns: 1fr !important;
+          gap: var(--spacing-xl) !important;
+        }
+      }
+
+      @media (max-width: 415px) {
+        .labs-grid {
+          gap: var(--spacing-lg) !important;
+        }
+
+        .lab-equipment {
+          padding: var(--spacing-lg);
+        }
+      }
+
+      /* Animation Controls Wrapper */
+      .animation-controls-wrapper {
+        position: relative;
+        margin-top: calc(-1 * var(--spacing-3xl));
+      }
+
+      .animation-controls {
+        position: absolute;
+        bottom: var(--spacing-xl);
+        right: var(--spacing-xl);
+        background: rgba(255, 255, 255, 0.9);
+        padding: var(--spacing-md);
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-lg);
+        z-index: 10;
+      }
+
+      .animation-controls label {
+        display: block;
+        font-size: 0.875rem;
+        margin-bottom: var(--spacing-sm);
+        color: var(--color-gray-700);
+      }
+
+      .animation-controls input[type="range"] {
+        width: 150px;
+      }
+
+      /* Medium screens - prevent overlap */
+      @media (max-width: 1024px) {
+        .animation-controls-wrapper {
+          margin-top: 0;
+        }
+
+        .animation-controls {
+          position: relative;
+          bottom: auto;
+          right: auto;
+          margin: var(--spacing-xl) var(--spacing-xl) 0 auto;
+          max-width: 200px;
+        }
+      }
+
+      @media (max-width: 916px) {
+        .animation-controls-wrapper {
+          position: static;
+          padding: var(--spacing-xl);
+          background: var(--color-gray-50);
+          margin-top: 0;
+        }
+
+        .animation-controls {
+          position: static;
+          transform: none;
+          margin: 0 auto;
+          max-width: 300px;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body class="theme-eletronica">
+    <!-- Skip to main content -->
+    <a
+      href="#main"
+      class="skip-to-main sr-only"
+      data-i18n="common.skipToMain"
+    ></a>
+
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <nav class="navbar">
+          <a href="index.html" class="logo">
+            <img
+              src="assets/images/imptellogo.jpg"
+              alt="IMPTEL Logo"
+              width="40"
+              height="40"
+            />
+            <span>IMPTEL</span>
+          </a>
+
+          <ul class="nav-menu">
+            <li>
+              <a href="index.html" class="nav-link" data-i18n="nav.home"></a>
+            </li>
+            <li>
+              <a
+                href="visitante.html#about"
+                class="nav-link"
+                data-i18n="nav.about"
+              ></a>
+            </li>
+            <li>
+              <a
+                href="visitante.html#home"
+                class="nav-link"
+                data-i18n="nav.news"
+              ></a>
+            </li>
+            <li>
+              <a
+                href="visitante.html#facilities"
+                class="nav-link"
+                data-i18n="nav.facilities"
+              ></a>
+            </li>
+            <li>
+              <a
+                href="visitante.html#courses"
+                class="nav-link"
+                data-i18n="nav.programs"
+              ></a>
+            </li>
+            <li>
+              <a
+                href="visitante.html#admission"
+                class="nav-link"
+                data-i18n="nav.admissions"
+              ></a>
+            </li>
+          </ul>
+
+          <div class="language-switcher">
+            <button data-lang="pt" class="active">PT</button>
+            <button data-lang="en">EN</button>
+          </div>
+
+          <button class="mobile-menu-toggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main">
+      <!-- Hero Section with Circuit Animation -->
+      <section class="hero-section">
+        <div class="circuits-container">
+          <!-- Temporarily showing SVG directly -->
+          <img
+            src="assets/images/circuit-lines.svg"
+            alt="Circuit Board"
+            style="width: 100%; height: 100%; object-fit: cover; opacity: 0.8"
+          />
+        </div>
+
+        <div class="container">
+          <div class="hero-content animate-fade-in-up">
+            <h1 data-i18n="hero.elec.title"></h1>
+            <p data-i18n="hero.elec.subtitle"></p>
+
+            <div class="hero-buttons">
+              <a
+                href="#courses"
+                class="hero-btn"
+                data-i18n="hero.elec.btn1"
+              ></a>
+              <a href="#labs" class="hero-btn" data-i18n="hero.elec.btn2"></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Animation Controls -->
+      <div class="animation-controls-wrapper">
+        <div class="animation-controls">
+          <label
+            for="animation-intensity"
+            data-i18n="animation.intensity"
+          ></label>
+          <input
+            type="range"
+            id="animation-intensity"
+            class="animation-intensity-control"
+            min="0"
+            max="1"
+            step="0.1"
+            value="0.7"
+          />
+        </div>
+      </div>
+
+      <!-- Courses Section -->
+      <section id="courses" class="section">
+        <div class="container">
+          <h2
+            class="section-title gradient-text"
+            data-i18n="sections.programs"
+          ></h2>
+
+          <div
+            class="courses-grid"
+            style="
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+              gap: var(--spacing-xl);
+              margin-top: var(--spacing-2xl);
+            "
+          >
+            <!-- Low Voltage Installations -->
+            <div class="course-card scroll-animate">
+              <div class="course-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 10V3L4 14h7v7l9-11h-7z"
+                  ></path>
+                </svg>
+              </div>
+              <h3 data-i18n="electronics.courses.lowVoltage"></h3>
+              <p data-i18n="electronics.courses.lowVoltageDesc"></p>
+
+              <div class="circuit-diagram">
+                <svg width="100%" height="100" viewBox="0 0 200 100">
+                  <line
+                    x1="20"
+                    y1="50"
+                    x2="80"
+                    y2="50"
+                    stroke="#1E3A8A"
+                    stroke-width="2"
+                  />
+                  <circle
+                    cx="100"
+                    cy="50"
+                    r="20"
+                    fill="none"
+                    stroke="#1E3A8A"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="120"
+                    y1="50"
+                    x2="180"
+                    y2="50"
+                    stroke="#1E3A8A"
+                    stroke-width="2"
+                  />
+                  <text
+                    x="100"
+                    y="55"
+                    text-anchor="middle"
+                    fill="#1E3A8A"
+                    font-size="14"
+                  >
+                    220V
+                  </text>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Camera Installation -->
+            <div class="course-card scroll-animate">
+              <div class="course-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+                  ></path>
+                </svg>
+              </div>
+              <h3 data-i18n="electronics.courses.cameras"></h3>
+              <p data-i18n="electronics.courses.camerasDesc"></p>
+
+              <div class="circuit-diagram">
+                <svg width="100%" height="100" viewBox="0 0 200 100">
+                  <rect
+                    x="20"
+                    y="30"
+                    width="40"
+                    height="40"
+                    fill="none"
+                    stroke="#1E3A8A"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="60"
+                    y1="50"
+                    x2="140"
+                    y2="50"
+                    stroke="#1E3A8A"
+                    stroke-width="2"
+                    stroke-dasharray="5,5"
+                  />
+                  <rect
+                    x="140"
+                    y="40"
+                    width="40"
+                    height="20"
+                    fill="none"
+                    stroke="#1E3A8A"
+                    stroke-width="2"
+                  />
+                  <text x="30" y="85" font-size="12" fill="#1E3A8A">CAM</text>
+                  <text x="150" y="75" font-size="12" fill="#1E3A8A">DVR</text>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Telecommunications -->
+            <div class="course-card scroll-animate">
+              <div class="course-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"
+                  ></path>
+                </svg>
+              </div>
+              <h3 data-i18n="electronics.courses.telecom"></h3>
+              <p data-i18n="electronics.courses.telecomDesc"></p>
+
+              <div class="circuit-diagram">
+                <svg width="100%" height="100" viewBox="0 0 200 100">
+                  <circle cx="50" cy="50" r="5" fill="#1E3A8A" />
+                  <circle
+                    cx="50"
+                    cy="50"
+                    r="15"
+                    fill="none"
+                    stroke="#1E3A8A"
+                    stroke-width="1"
+                    opacity="0.7"
+                  />
+                  <circle
+                    cx="50"
+                    cy="50"
+                    r="25"
+                    fill="none"
+                    stroke="#1E3A8A"
+                    stroke-width="1"
+                    opacity="0.5"
+                  />
+                  <circle
+                    cx="50"
+                    cy="50"
+                    r="35"
+                    fill="none"
+                    stroke="#1E3A8A"
+                    stroke-width="1"
+                    opacity="0.3"
+                  />
+                  <line
+                    x1="85"
+                    y1="50"
+                    x2="150"
+                    y2="50"
+                    stroke="#1E3A8A"
+                    stroke-width="2"
+                  />
+                  <circle cx="150" cy="50" r="5" fill="#1E3A8A" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Laboratories Section -->
+      <section id="labs" class="section theme-section">
+        <div class="container">
+          <h2
+            class="section-title gradient-text"
+            data-i18n="electronics.labs.title"
+          ></h2>
+
+          <div
+            class="labs-grid"
+            style="
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: var(--spacing-2xl);
+              align-items: center;
+              margin-top: var(--spacing-2xl);
+            "
+          >
+            <div class="scroll-animate-left">
+              <h3
+                style="
+                  color: var(--theme-elec-primary);
+                  margin-bottom: var(--spacing-lg);
+                "
+                data-i18n="electronics.labs.equipment"
+              ></h3>
+              <p
+                style="margin-bottom: var(--spacing-lg)"
+                data-i18n="electronics.labs.equipmentDesc"
+              ></p>
+
+              <ul style="list-style: none; padding: 0">
+                <li
+                  style="
+                    margin-bottom: var(--spacing-md);
+                    padding-left: var(--spacing-lg);
+                    position: relative;
+                  "
+                >
+                  <span
+                    style="
+                      position: absolute;
+                      left: 0;
+                      color: var(--theme-elec-accent);
+                    "
+                    >▶</span
+                  >
+                  <span data-i18n="electronics.labs.item1"></span>
+                </li>
+                <li
+                  style="
+                    margin-bottom: var(--spacing-md);
+                    padding-left: var(--spacing-lg);
+                    position: relative;
+                  "
+                >
+                  <span
+                    style="
+                      position: absolute;
+                      left: 0;
+                      color: var(--theme-elec-accent);
+                    "
+                    >▶</span
+                  >
+                  <span data-i18n="electronics.labs.item2"></span>
+                </li>
+                <li
+                  style="
+                    margin-bottom: var(--spacing-md);
+                    padding-left: var(--spacing-lg);
+                    position: relative;
+                  "
+                >
+                  <span
+                    style="
+                      position: absolute;
+                      left: 0;
+                      color: var(--theme-elec-accent);
+                    "
+                    >▶</span
+                  >
+                  <span data-i18n="electronics.labs.item3"></span>
+                </li>
+                <li
+                  style="
+                    margin-bottom: var(--spacing-md);
+                    padding-left: var(--spacing-lg);
+                    position: relative;
+                  "
+                >
+                  <span
+                    style="
+                      position: absolute;
+                      left: 0;
+                      color: var(--theme-elec-accent);
+                    "
+                    >▶</span
+                  >
+                  <span data-i18n="electronics.labs.item4"></span>
+                </li>
+                <li
+                  style="
+                    margin-bottom: var(--spacing-md);
+                    padding-left: var(--spacing-lg);
+                    position: relative;
+                  "
+                >
+                  <span
+                    style="
+                      position: absolute;
+                      left: 0;
+                      color: var(--theme-elec-accent);
+                    "
+                    >▶</span
+                  >
+                  <span data-i18n="electronics.labs.item5"></span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="scroll-animate-right">
+              <div class="lab-equipment">
+                <h4
+                  style="
+                    color: var(--theme-elec-dark);
+                    margin-bottom: var(--spacing-lg);
+                    text-align: center;
+                  "
+                  data-i18n="electronics.labs.areas"
+                ></h4>
+                <div
+                  style="
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: var(--spacing-md);
+                  "
+                >
+                  <div
+                    class="badge"
+                    style="
+                      background: var(--theme-elec-light);
+                      color: var(--theme-elec-dark);
+                      text-align: center;
+                      padding: var(--spacing-md);
+                    "
+                  >
+                    <span data-i18n="electronics.labs.digitalElec"></span>
+                  </div>
+                  <div
+                    class="badge"
+                    style="
+                      background: var(--theme-elec-light);
+                      color: var(--theme-elec-dark);
+                      text-align: center;
+                      padding: var(--spacing-md);
+                    "
+                  >
+                    <span data-i18n="electronics.labs.analogElec"></span>
+                  </div>
+                  <div
+                    class="badge"
+                    style="
+                      background: var(--theme-elec-light);
+                      color: var(--theme-elec-dark);
+                      text-align: center;
+                      padding: var(--spacing-md);
+                    "
+                  >
+                    <span data-i18n="electronics.labs.microcontrollers"></span>
+                  </div>
+                  <div
+                    class="badge"
+                    style="
+                      background: var(--theme-elec-light);
+                      color: var(--theme-elec-dark);
+                      text-align: center;
+                      padding: var(--spacing-md);
+                    "
+                  >
+                    <span data-i18n="electronics.labs.dataNetworks"></span>
+                  </div>
+                  <div
+                    class="badge"
+                    style="
+                      background: var(--theme-elec-light);
+                      color: var(--theme-elec-dark);
+                      text-align: center;
+                      padding: var(--spacing-md);
+                    "
+                  >
+                    <span data-i18n="electronics.labs.iotSensors"></span>
+                  </div>
+                  <div
+                    class="badge"
+                    style="
+                      background: var(--theme-elec-light);
+                      color: var(--theme-elec-dark);
+                      text-align: center;
+                      padding: var(--spacing-md);
+                    "
+                  >
+                    <span data-i18n="electronics.labs.solarEnergy"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Industry Partnerships -->
+      <section class="section">
+        <div class="container">
+          <h2
+            class="section-title gradient-text"
+            data-i18n="electronics.partnerships.title"
+          ></h2>
+
+          <div style="text-align: center; margin-bottom: var(--spacing-2xl)">
+            <p
+              style="font-size: 1.125rem; color: var(--color-gray-600)"
+              data-i18n="electronics.partnerships.desc"
+            ></p>
+          </div>
+
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+              gap: var(--spacing-xl);
+            "
+          >
+            <!-- Partner Card 1 -->
+            <div class="theme-card scroll-animate">
+              <div
+                style="
+                  height: 80px;
+                  background: var(--color-gray-100);
+                  border-radius: var(--radius-md);
+                  margin-bottom: var(--spacing-lg);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+                <span
+                  style="color: var(--color-gray-400); font-weight: 600"
+                  data-i18n="electronics.partnerships.partner1"
+                ></span>
+              </div>
+              <h4
+                style="
+                  color: var(--theme-elec-dark);
+                  margin-bottom: var(--spacing-sm);
+                "
+                data-i18n="electronics.partnerships.partner1Title"
+              ></h4>
+              <p
+                style="color: var(--color-gray-600); font-size: 0.875rem"
+                data-i18n="electronics.partnerships.partner1Desc"
+              ></p>
+            </div>
+
+            <!-- Partner Card 2 -->
+            <div
+              class="theme-card scroll-animate"
+              style="animation-delay: 0.1s"
+            >
+              <div
+                style="
+                  height: 80px;
+                  background: var(--color-gray-100);
+                  border-radius: var(--radius-md);
+                  margin-bottom: var(--spacing-lg);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+                <span
+                  style="color: var(--color-gray-400); font-weight: 600"
+                  data-i18n="electronics.partnerships.partner2"
+                ></span>
+              </div>
+              <h4
+                style="
+                  color: var(--theme-elec-dark);
+                  margin-bottom: var(--spacing-sm);
+                "
+                data-i18n="electronics.partnerships.partner2Title"
+              ></h4>
+              <p
+                style="color: var(--color-gray-600); font-size: 0.875rem"
+                data-i18n="electronics.partnerships.partner2Desc"
+              ></p>
+            </div>
+
+            <!-- Partner Card 3 -->
+            <div
+              class="theme-card scroll-animate"
+              style="animation-delay: 0.2s"
+            >
+              <div
+                style="
+                  height: 80px;
+                  background: var(--color-gray-100);
+                  border-radius: var(--radius-md);
+                  margin-bottom: var(--spacing-lg);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+                <span
+                  style="color: var(--color-gray-400); font-weight: 600"
+                  data-i18n="electronics.partnerships.partner3"
+                ></span>
+              </div>
+              <h4
+                style="
+                  color: var(--theme-elec-dark);
+                  margin-bottom: var(--spacing-sm);
+                "
+                data-i18n="electronics.partnerships.partner3Title"
+              ></h4>
+              <p
+                style="color: var(--color-gray-600); font-size: 0.875rem"
+                data-i18n="electronics.partnerships.partner3Desc"
+              ></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Success Stories -->
+      <section class="section" style="background: var(--theme-elec-light)">
+        <div class="container">
+          <h2
+            class="section-title gradient-text"
+            data-i18n="electronics.graduates.title"
+          ></h2>
+
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+              gap: var(--spacing-xl);
+              margin-top: var(--spacing-2xl);
+            "
+          >
+            <!-- Alumni Card 1 -->
+            <div class="theme-card scroll-animate">
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  margin-bottom: var(--spacing-lg);
+                "
+              >
+                <div
+                  style="
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                    background: var(--theme-elec-light);
+                    margin-right: var(--spacing-md);
+                  "
+                ></div>
+                <div>
+                  <h4 style="color: var(--theme-elec-dark)">Ana Costa</h4>
+                  <p style="color: var(--color-gray-600); font-size: 0.875rem">
+                    <span data-i18n="alumni.class"></span> 2022
+                  </p>
+                </div>
+              </div>
+              <p
+                style="font-style: italic; color: var(--color-gray-700)"
+                data-i18n="electronics.graduates.testimonial1"
+              ></p>
+              <p
+                style="
+                  color: var(--theme-elec-primary);
+                  font-weight: 600;
+                  margin-top: var(--spacing-md);
+                "
+                data-i18n="electronics.graduates.position1"
+              ></p>
+            </div>
+
+            <!-- Alumni Card 2 -->
+            <div
+              class="theme-card scroll-animate"
+              style="animation-delay: 0.1s"
+            >
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  margin-bottom: var(--spacing-lg);
+                "
+              >
+                <div
+                  style="
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                    background: var(--theme-elec-light);
+                    margin-right: var(--spacing-md);
+                  "
+                ></div>
+                <div>
+                  <h4 style="color: var(--theme-elec-dark)">Carlos Mendes</h4>
+                  <p style="color: var(--color-gray-600); font-size: 0.875rem">
+                    <span data-i18n="alumni.class"></span> 2021
+                  </p>
+                </div>
+              </div>
+              <p
+                style="font-style: italic; color: var(--color-gray-700)"
+                data-i18n="electronics.graduates.testimonial2"
+              ></p>
+              <p
+                style="
+                  color: var(--theme-elec-primary);
+                  font-weight: 600;
+                  margin-top: var(--spacing-md);
+                "
+                data-i18n="electronics.graduates.position2"
+              ></p>
+            </div>
+
+            <!-- Alumni Card 3 -->
+            <div
+              class="theme-card scroll-animate"
+              style="animation-delay: 0.2s"
+            >
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  margin-bottom: var(--spacing-lg);
+                "
+              >
+                <div
+                  style="
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                    background: var(--theme-elec-light);
+                    margin-right: var(--spacing-md);
+                  "
+                ></div>
+                <div>
+                  <h4 style="color: var(--theme-elec-dark)">Sofia Nunes</h4>
+                  <p style="color: var(--color-gray-600); font-size: 0.875rem">
+                    <span data-i18n="alumni.class"></span> 2023
+                  </p>
+                </div>
+              </div>
+              <p
+                style="font-style: italic; color: var(--color-gray-700)"
+                data-i18n="electronics.graduates.testimonial3"
+              ></p>
+              <p
+                style="
+                  color: var(--theme-elec-primary);
+                  font-weight: 600;
+                  margin-top: var(--spacing-md);
+                "
+                data-i18n="electronics.graduates.position3"
+              ></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section
+        class="section"
+        style="
+          background: linear-gradient(
+            135deg,
+            var(--theme-elec-primary) 0%,
+            var(--theme-elec-accent) 100%
+          );
+          text-align: center;
+          color: var(--color-white);
+        "
+      >
+        <div class="container">
+          <h2
+            style="
+              font-size: 2.5rem;
+              margin-bottom: var(--spacing-lg);
+              color: var(--color-white);
+            "
+            data-i18n="sections.ready"
+          ></h2>
+          <p
+            style="
+              font-size: 1.125rem;
+              margin-bottom: var(--spacing-2xl);
+              opacity: 0.9;
+            "
+            data-i18n="electronics.cta"
+          ></p>
+          <a
+            href="#admissions"
+            class="btn-theme"
+            style="
+              background: var(--color-white);
+              color: var(--theme-elec-primary);
+              font-size: 1.125rem;
+              padding: var(--spacing-md) var(--spacing-3xl);
+              position: relative;
+              overflow: hidden;
+              display: inline-block;
+            "
+            data-i18n="form.enrollNow"
+          ></a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" aria-label="Back to top">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M5 10l7-7m0 0l7 7m-7-7v18"
+        ></path>
+      </svg>
+    </button>
+
+    <!-- Footer -->
+    <footer
+      class="footer"
+      style="
+        background: var(--color-gray-900);
+        color: var(--color-white);
+        padding: var(--spacing-3xl) 0;
+      "
+    >
+      <div class="container">
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-2xl);
+          "
+        >
+          <div>
+            <h3
+              style="margin-bottom: var(--spacing-lg)"
+              data-i18n="footer.about"
+            ></h3>
+            <p
+              style="color: var(--color-gray-400)"
+              data-i18n="footer.aboutDesc"
+            ></p>
+          </div>
+
+          <div>
+            <h3
+              style="margin-bottom: var(--spacing-lg)"
+              data-i18n="footer.programs"
+            ></h3>
+            <ul style="list-style: none; padding: 0">
+              <li style="margin-bottom: var(--spacing-sm)">
+                <a
+                  href="#"
+                  style="
+                    color: var(--color-gray-400);
+                    transition: color var(--transition-fast);
+                  "
+                  data-i18n="electronics.courses.lowVoltage"
+                ></a>
+              </li>
+              <li style="margin-bottom: var(--spacing-sm)">
+                <a
+                  href="#"
+                  style="
+                    color: var(--color-gray-400);
+                    transition: color var(--transition-fast);
+                  "
+                  data-i18n="electronics.courses.cameras"
+                ></a>
+              </li>
+              <li style="margin-bottom: var(--spacing-sm)">
+                <a
+                  href="#"
+                  style="
+                    color: var(--color-gray-400);
+                    transition: color var(--transition-fast);
+                  "
+                  data-i18n="electronics.courses.telecom"
+                ></a>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3
+              style="margin-bottom: var(--spacing-lg)"
+              data-i18n="footer.contact"
+            ></h3>
+            <ul
+              style="list-style: none; padding: 0; color: var(--color-gray-400)"
+            >
+              <li style="margin-bottom: var(--spacing-sm)">
+                📍 <span data-i18n="common.address"></span>
+              </li>
+              <li style="margin-bottom: var(--spacing-sm)">
+                📞 +244 923 456 789
+              </li>
+              <li style="margin-bottom: var(--spacing-sm)">
+                ✉️ info@imptel.ao
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3
+              style="margin-bottom: var(--spacing-lg)"
+              data-i18n="footer.quickLinks"
+            ></h3>
+            <ul style="list-style: none; padding: 0">
+              <li style="margin-bottom: var(--spacing-sm)">
+                <a
+                  href="index.html"
+                  style="
+                    color: var(--color-gray-400);
+                    transition: color var(--transition-fast);
+                  "
+                  data-i18n="footer.home"
+                ></a>
+              </li>
+              <li style="margin-bottom: var(--spacing-sm)">
+                <a
+                  href="informatica.html"
+                  style="
+                    color: var(--color-gray-400);
+                    transition: color var(--transition-fast);
+                  "
+                  data-i18n="common.computerScience"
+                ></a>
+              </li>
+              <li style="margin-bottom: var(--spacing-sm)">
+                <a
+                  href="visitante.html"
+                  style="
+                    color: var(--color-gray-400);
+                    transition: color var(--transition-fast);
+                  "
+                  data-i18n="footer.generalInfo"
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          style="
+            margin-top: var(--spacing-2xl);
+            padding-top: var(--spacing-2xl);
+            border-top: 1px solid var(--color-gray-800);
+            text-align: center;
+            color: var(--color-gray-500);
+          "
+        >
+          <p>
+            <span data-i18n="common.copyright"></span>
+            <span data-i18n="footer.rights"></span>.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/utils.js"></script>
+    <script src="assets/js/translations.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/language-switcher.js"></script>
+    <script src="assets/js/circuit-path-electrons-enhanced.js"></script>
+    <script src="assets/js/form-handler.js"></script>
+  </body>
+</html>

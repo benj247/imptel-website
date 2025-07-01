@@ -1,0 +1,357 @@
+/* Responsive Styles - IMPTEL Website */
+
+/* ===== Mobile First Approach ===== */
+
+/* Mobile Navigation Styles */
+@media (max-width: 916px) {
+    .header {
+        padding: var(--spacing-sm) 0;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 60px);
+        background: rgba(255, 255, 255, 0.98);
+        flex-direction: column;
+        gap: var(--spacing-lg);
+        padding: var(--spacing-2xl);
+        transform: translateX(-100%);
+        transition: transform var(--transition-base);
+        justify-content: flex-start;
+        overflow-y: auto;
+    }
+    
+    .nav-menu.active {
+        transform: translateX(0);
+    }
+    
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    .header .language-switcher {
+        margin-left: auto;
+        margin-right: var(--spacing-md);
+        order: 2;
+    }
+    
+    .mobile-menu-toggle {
+        order: 3;
+    }
+    
+    .navbar {
+        gap: var(--spacing-md);
+    }
+}
+
+/* Extra Small Devices (320px and up) */
+@media (max-width: 480px) {
+    /* Base Typography */
+    :root {
+        font-size: 14px;
+    }
+    
+    /* Selector Page */
+    .selector-container {
+        padding: var(--spacing-md);
+        min-height: auto;
+        padding-top: var(--spacing-2xl);
+        padding-bottom: var(--spacing-2xl);
+    }
+    
+    .logo-section {
+        margin-bottom: var(--spacing-xl);
+    }
+    
+    .main-logo {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .institute-name {
+        font-size: 2rem;
+    }
+    
+    .institute-tagline {
+        font-size: 0.875rem;
+    }
+    
+    /* Selection Cards - Stack Vertically */
+    .selection-cards {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+        margin-bottom: var(--spacing-xl);
+    }
+    
+    .selector-card {
+        min-height: auto;
+    }
+    
+    .card-content {
+        padding: var(--spacing-lg);
+        min-height: 250px;
+    }
+    
+    .card-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .card-icon svg {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .card-title {
+        font-size: 1.25rem;
+    }
+    
+    .card-description {
+        font-size: 0.875rem;
+    }
+    
+    /* Quick Stats */
+    .quick-stats {
+        flex-direction: column;
+        gap: var(--spacing-lg);
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .stat-label {
+        font-size: 0.75rem;
+    }
+    
+    /* Language Switcher - Index Page */
+    .selector-page .language-switcher {
+        top: var(--spacing-md);
+        right: var(--spacing-md);
+        flex-direction: row; /* Keep horizontal */
+    }
+    
+    .selector-page .language-switcher button {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: 0.75rem;
+        min-width: 35px;
+    }
+}
+
+/* Small Devices (481px to 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    /* Selector Page */
+    .selector-container {
+        padding: var(--spacing-lg);
+    }
+    
+    .selection-cards {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .card-content {
+        padding: var(--spacing-xl);
+    }
+    
+    /* Quick Stats - Horizontal on tablets */
+    .quick-stats {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--spacing-xl);
+    }
+}
+
+/* Medium Devices (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* Selection Cards - 2 columns on tablet landscape */
+    .selection-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-lg);
+    }
+    
+    .selector-card:nth-child(3) {
+        grid-column: 1 / -1;
+        max-width: 50%;
+        margin: 0 auto;
+    }
+}
+
+/* Large Devices (1025px to 1440px) */
+@media (min-width: 1025px) {
+    /* Default styles are optimized for this range */
+}
+
+/* Extra Large Devices (1441px and up) */
+@media (min-width: 1441px) {
+    /* Container max-width for very large screens */
+    .container {
+        max-width: 1400px;
+    }
+    
+    .selection-cards {
+        max-width: 1400px;
+    }
+}
+
+/* ===== Touch Device Optimizations ===== */
+@media (hover: none) and (pointer: coarse) {
+    /* Remove hover effects on touch devices */
+    .selector-card:hover {
+        transform: none;
+    }
+    
+    .card-overlay {
+        display: none;
+    }
+    
+    /* Make interactive elements larger */
+    .card-link,
+    .btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* Show all information by default */
+    .selector-card .card-icon {
+        background: var(--color-gray-100);
+    }
+}
+
+/* ===== Orientation Specific ===== */
+@media (orientation: landscape) and (max-height: 500px) {
+    /* Reduce vertical spacing in landscape on small devices */
+    .selector-container {
+        padding-top: var(--spacing-md);
+        padding-bottom: var(--spacing-md);
+    }
+    
+    .logo-section {
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    .main-logo {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .selection-cards {
+        gap: var(--spacing-md);
+    }
+    
+    .card-content {
+        min-height: auto;
+        padding: var(--spacing-md);
+    }
+}
+
+/* ===== Print Styles ===== */
+@media print {
+    /* Hide unnecessary elements */
+    .language-switcher,
+    .card-overlay,
+    .background-blur::before {
+        display: none !important;
+    }
+    
+    /* Simplify layout */
+    .selector-page {
+        background: white;
+    }
+    
+    .selection-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .selector-card {
+        box-shadow: none;
+        border: 1px solid #ccc;
+        page-break-inside: avoid;
+    }
+    
+    /* Ensure links are visible */
+    .card-link::after {
+        content: " (" attr(href) ")";
+    }
+}
+
+/* ===== High DPI Displays ===== */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    /* Use higher resolution images */
+    .main-logo {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* ===== Accessibility - High Contrast Mode ===== */
+@media (prefers-contrast: high) {
+    .selector-card {
+        border: 2px solid currentColor;
+    }
+    
+    .card-link {
+        border: 2px solid currentColor;
+    }
+    
+    .language-switcher button {
+        border: 1px solid currentColor;
+    }
+}
+
+/* ===== Dark Mode Support (Future Enhancement) ===== */
+@media (prefers-color-scheme: dark) {
+    /* Dark mode styles can be added here when implemented */
+}
+
+/* ===== Utility Classes for Responsive ===== */
+/* Hide on mobile */
+@media (max-width: 768px) {
+    .hide-mobile {
+        display: none !important;
+    }
+}
+
+/* Hide on tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .hide-tablet {
+        display: none !important;
+    }
+}
+
+/* Hide on desktop */
+@media (min-width: 1025px) {
+    .hide-desktop {
+        display: none !important;
+    }
+}
+
+/* Show only on mobile */
+.show-mobile {
+    display: none !important;
+}
+
+@media (max-width: 768px) {
+    .show-mobile {
+        display: block !important;
+    }
+}
+
+/* Responsive spacing utilities */
+@media (max-width: 768px) {
+    .mobile-spacing-sm {
+        padding: var(--spacing-sm) !important;
+    }
+    
+    .mobile-spacing-md {
+        padding: var(--spacing-md) !important;
+    }
+    
+    .mobile-spacing-lg {
+        padding: var(--spacing-lg) !important;
+    }
+}

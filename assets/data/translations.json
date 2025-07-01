@@ -1,0 +1,172 @@
+{
+    "pt": {
+        "pageTitle": "IMPTEL - Instituto Privado de Tecnologia",
+        "metaDescription": "IMPTEL - Instituto Privado de Tecnologia e Eletrônica. Descubra nossos cursos de Informática e Eletrônica.",
+        "institute": {
+            "tagline": "Instituto Privado de Tecnologia"
+        },
+        "selector": {
+            "cs": {
+                "title": "Informática",
+                "desc": "Explore o mundo da programação e tecnologia",
+                "action": "Descobrir"
+            },
+            "elec": {
+                "title": "Eletrônica e Telecomunicações",
+                "desc": "Domine circuitos e sistemas de comunicação",
+                "action": "Explorar"
+            },
+            "visitor": {
+                "title": "Visitante",
+                "desc": "Conheça o IMPTEL e nossa história",
+                "action": "Visitar"
+            }
+        },
+        "stats": {
+            "years": "Anos de Excelência",
+            "students": "Alunos Formados",
+            "employment": "% Empregabilidade"
+        },
+        "nav": {
+            "home": "Início",
+            "about": "Sobre",
+            "news": "Notícias/Eventos",
+            "facilities": "Instalações",
+            "programs": "Programas",
+            "admissions": "Admissões",
+            "contact": "Contacto"
+        },
+        "hero": {
+            "cs": {
+                "title": "Bem-vindo ao Mundo da Informática",
+                "subtitle": "Transforme sua paixão por tecnologia em uma carreira de sucesso",
+                "btn1": "Explorar Programas",
+                "btn2": "Descobrir Inovação"
+            },
+            "elec": {
+                "title": "Eletrônica e Telecomunicações",
+                "subtitle": "Conecte-se ao futuro da tecnologia",
+                "btn1": "Ver Cursos",
+                "btn2": "Laboratórios"
+            },
+            "visitor": {
+                "title": "Bem-vindo ao IMPTEL",
+                "subtitle": "13 anos formando profissionais de excelência"
+            }
+        },
+        "sections": {
+            "programs": "Nossos Programas",
+            "about": "Sobre o IMPTEL",
+            "facilities": "Nossas Instalações",
+            "testimonials": "Depoimentos",
+            "news": "Notícias e Eventos",
+            "contact": "Entre em Contato"
+        },
+        "form": {
+            "name": "Nome Completo",
+            "email": "Email",
+            "phone": "Telefone",
+            "message": "Mensagem",
+            "course": "Curso de Interesse",
+            "submit": "Enviar",
+            "sending": "Enviando...",
+            "success": "Mensagem enviada com sucesso!",
+            "error": "Erro ao enviar mensagem. Tente novamente."
+        },
+        "footer": {
+            "about": "Sobre o Instituto",
+            "programs": "Programas Académicos",
+            "services": "Serviços",
+            "contact": "Contactos",
+            "quickLinks": "Links Rápidos",
+            "rights": "Todos os direitos reservados",
+            "privacy": "Política de Privacidade",
+            "terms": "Termos de Uso"
+        }
+    },
+    "en": {
+        "pageTitle": "IMPTEL - Private Institute of Technology",
+        "metaDescription": "IMPTEL - Private Institute of Technology and Electronics. Discover our Computer Science and Electronics courses.",
+        "institute": {
+            "tagline": "Private Institute of Technology"
+        },
+        "selector": {
+            "cs": {
+                "title": "Computer Science",
+                "desc": "Explore the world of programming and technology",
+                "action": "Discover"
+            },
+            "elec": {
+                "title": "Electronics & Telecommunications",
+                "desc": "Master circuits and communication systems",
+                "action": "Explore"
+            },
+            "visitor": {
+                "title": "Visitor",
+                "desc": "Learn about IMPTEL and our history",
+                "action": "Visit"
+            }
+        },
+        "stats": {
+            "years": "Years of Excellence",
+            "students": "Graduated Students",
+            "employment": "% Employment Rate"
+        },
+        "nav": {
+            "home": "Home",
+            "about": "About",
+            "news": "News/Events",
+            "facilities": "Facilities",
+            "programs": "Programs",
+            "admissions": "Admissions",
+            "contact": "Contact"
+        },
+        "hero": {
+            "cs": {
+                "title": "Welcome to the World of Computer Science",
+                "subtitle": "Transform your passion for technology into a successful career",
+                "btn1": "Explore Programs",
+                "btn2": "Discover Innovation"
+            },
+            "elec": {
+                "title": "Electronics & Telecommunications",
+                "subtitle": "Connect to the future of technology",
+                "btn1": "View Courses",
+                "btn2": "Laboratories"
+            },
+            "visitor": {
+                "title": "Welcome to IMPTEL",
+                "subtitle": "13 years training excellence professionals"
+            }
+        },
+        "sections": {
+            "programs": "Our Programs",
+            "about": "About IMPTEL",
+            "facilities": "Our Facilities",
+            "testimonials": "Testimonials",
+            "news": "News & Events",
+            "contact": "Get in Touch"
+        },
+        "form": {
+            "name": "Full Name",
+            "email": "Email",
+            "phone": "Phone",
+            "message": "Message",
+            "course": "Course of Interest",
+            "submit": "Send",
+            "sending": "Sending...",
+            "success": "Message sent successfully!",
+            "error": "Error sending message. Please try again."
+        },
+        "footer": {
+            "about": "About the Institute",
+            "programs": "Academic Programs",
+            "services": "Services",
+            "contact": "Contacts",
+            "quickLinks": "Quick Links",
+            "rights": "All rights reserved",
+            "privacy": "Privacy Policy",
+            "terms": "Terms of Use"
+        }
+    }
+}

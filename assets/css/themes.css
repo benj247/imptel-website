@@ -1,0 +1,292 @@
+/* Theme Styles - IMPTEL Website */
+
+/* ===== Theme Variables ===== */
+:root {
+    /* Computer Science Theme - Green */
+    --theme-cs-primary: #00FF41;
+    --theme-cs-secondary: #008F11;
+    --theme-cs-accent: #32CD32;
+    --theme-cs-dark: #004d0d;
+    --theme-cs-light: #e6ffe6;
+    --theme-cs-gradient: linear-gradient(135deg, var(--theme-cs-primary) 0%, var(--theme-cs-secondary) 100%);
+    
+    /* Electronics Theme - Blue */
+    --theme-elec-primary: #1E3A8A;
+    --theme-elec-secondary: #1E40AF;
+    --theme-elec-accent: #3B82F6;
+    --theme-elec-dark: #1e293b;
+    --theme-elec-light: #dbeafe;
+    --theme-elec-gradient: linear-gradient(135deg, var(--theme-elec-primary) 0%, var(--theme-elec-accent) 100%);
+    
+    /* Visitor Theme - Neutral */
+    --theme-visitor-primary: #6366F1;
+    --theme-visitor-secondary: #64748B;
+    --theme-visitor-accent: #8B5CF6;
+    --theme-visitor-dark: #4c1d95;
+    --theme-visitor-light: #f3f4f6;
+    --theme-visitor-gradient: linear-gradient(135deg, var(--theme-visitor-primary) 0%, var(--theme-visitor-accent) 100%);
+}
+
+/* ===== Selector Card Overlays ===== */
+.green-overlay {
+    background: linear-gradient(135deg, 
+        rgba(0, 255, 65, 0.1) 0%, 
+        rgba(0, 143, 17, 0.15) 100%);
+}
+
+.blue-overlay {
+    background: linear-gradient(135deg, 
+        rgba(30, 58, 138, 0.1) 0%, 
+        rgba(59, 130, 246, 0.15) 100%);
+}
+
+.neutral-overlay {
+    background: linear-gradient(135deg, 
+        rgba(99, 102, 241, 0.1) 0%, 
+        rgba(139, 92, 246, 0.15) 100%);
+}
+
+/* ===== Hover Effects for Cards ===== */
+.selector-card[data-theme="informatica"]:hover .card-icon {
+    background: var(--theme-cs-light);
+}
+
+.selector-card[data-theme="informatica"]:hover .card-icon svg {
+    color: var(--theme-cs-secondary);
+}
+
+.selector-card[data-theme="informatica"]:hover .card-link {
+    background: var(--theme-cs-gradient);
+}
+
+.selector-card[data-theme="eletronica"]:hover .card-icon {
+    background: var(--theme-elec-light);
+}
+
+.selector-card[data-theme="eletronica"]:hover .card-icon svg {
+    color: var(--theme-elec-primary);
+}
+
+.selector-card[data-theme="eletronica"]:hover .card-link {
+    background: var(--theme-elec-gradient);
+}
+
+.selector-card[data-theme="visitante"]:hover .card-icon {
+    background: var(--theme-visitor-light);
+}
+
+.selector-card[data-theme="visitante"]:hover .card-icon svg {
+    color: var(--theme-visitor-primary);
+}
+
+.selector-card[data-theme="visitante"]:hover .card-link {
+    background: var(--theme-visitor-gradient);
+}
+
+/* ===== Page Themes ===== */
+/* Computer Science Theme */
+.theme-informatica {
+    --primary-color: var(--theme-cs-primary);
+    --secondary-color: var(--theme-cs-secondary);
+    --accent-color: var(--theme-cs-accent);
+    --dark-color: var(--theme-cs-dark);
+    --light-color: var(--theme-cs-light);
+    --gradient: var(--theme-cs-gradient);
+}
+
+.theme-informatica .header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--theme-cs-light);
+}
+
+.theme-informatica .nav-link:hover {
+    color: var(--theme-cs-secondary);
+}
+
+.theme-informatica .btn-primary {
+    background: var(--gradient);
+}
+
+.theme-informatica .section-title {
+    color: var(--theme-cs-dark);
+}
+
+.theme-informatica .accent-text {
+    color: var(--theme-cs-secondary);
+}
+
+/* Electronics Theme */
+.theme-eletronica {
+    --primary-color: var(--theme-elec-primary);
+    --secondary-color: var(--theme-elec-secondary);
+    --accent-color: var(--theme-elec-accent);
+    --dark-color: var(--theme-elec-dark);
+    --light-color: var(--theme-elec-light);
+    --gradient: var(--theme-elec-gradient);
+}
+
+.theme-eletronica .header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--theme-elec-light);
+}
+
+.theme-eletronica .nav-link:hover {
+    color: var(--theme-elec-accent);
+}
+
+.theme-eletronica .btn-primary {
+    background: var(--gradient);
+}
+
+.theme-eletronica .section-title {
+    color: var(--theme-elec-dark);
+}
+
+.theme-eletronica .accent-text {
+    color: var(--theme-elec-accent);
+}
+
+/* Visitor Theme */
+.theme-visitante {
+    --primary-color: var(--theme-visitor-primary);
+    --secondary-color: var(--theme-visitor-secondary);
+    --accent-color: var(--theme-visitor-accent);
+    --dark-color: var(--theme-visitor-dark);
+    --light-color: var(--theme-visitor-light);
+    --gradient: var(--theme-visitor-gradient);
+}
+
+.theme-visitante .header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--theme-visitor-light);
+}
+
+.theme-visitante .nav-link:hover {
+    color: var(--theme-visitor-primary);
+}
+
+.theme-visitante .btn-primary {
+    background: var(--gradient);
+}
+
+.theme-visitante .section-title {
+    color: var(--theme-visitor-dark);
+}
+
+.theme-visitante .accent-text {
+    color: var(--theme-visitor-primary);
+}
+
+/* ===== Theme Components ===== */
+/* Cards with Theme */
+.theme-card {
+    background: var(--color-white);
+    border: 1px solid var(--light-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    transition: all var(--transition-base);
+}
+
+.theme-card:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Badges */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: var(--radius-full);
+    background: var(--light-color);
+    color: var(--dark-color);
+}
+
+/* Progress Bars */
+.progress-bar {
+    height: 8px;
+    background: var(--color-gray-200);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--gradient);
+    transition: width var(--transition-slow);
+}
+
+/* Theme Icons */
+.theme-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--light-color);
+    border-radius: var(--radius-md);
+    color: var(--primary-color);
+}
+
+/* Gradient Text */
+.gradient-text {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Theme Buttons */
+.btn-theme {
+    background: var(--gradient);
+    color: var(--color-white);
+    padding: var(--spacing-md) var(--spacing-xl);
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    transition: all var(--transition-fast);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-theme::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: left var(--transition-base);
+}
+
+.btn-theme:hover::before {
+    left: 100%;
+}
+
+.btn-theme:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Theme Overlays for Sections */
+.theme-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.theme-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient);
+    opacity: 0.05;
+    z-index: -1;
+}
