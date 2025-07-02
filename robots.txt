@@ -1,10 +1,26 @@
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://benj247.github.io/imptel-website/imptel-website/sitemap.xml
+# Permitir indexação de páginas principais
+Allow: /index.html
+Allow: /informatica.html
+Allow: /eletronica.html
+Allow: /visitante.html
 
-# Bloquear acesso a arquivos desnecessários
+# Permitir assets importantes para SEO
+Allow: /assets/images/
+Allow: /assets/css
+
+# Bloquear arquivos desnecessários
 Disallow: /assets/js/
-Disallow: /*.log
-Disallow: /*.tmp
+Disallow: *.log
+Disallow: *.tmp
+Disallow: *.swp
+Disallow: /assets/css/reset.css
+Disallow: /assets/css/themes.css
+
+# Sitemap
+Sitemap: https://benj247.github.io/imptel-website/sitemap.xml
+
+# Crawl-delay para ser gentil com o servidor
+Crawl-delay: 1
